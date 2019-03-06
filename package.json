@@ -11,6 +11,7 @@
   "author": "GitHub",
   "license": "MIT",
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.7.2",
     "electron": "^4.0.7"
   },
   "dependencies": {
