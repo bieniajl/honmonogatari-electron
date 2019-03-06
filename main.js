@@ -1,24 +1,12 @@
 const {app, BrowserWindow} = require('electron');
-const KVStore = require('./kv-store.js');
+const {KVStore, JBConfigProvider} = require('./kv-store.js');
+const path = require('path');
 
-const config = new KVStore({
-	name: "preferences",
-	defaults: {
-		window: {
-			width: 800,
-			height: 600,
-			frame: false,
-			webPreferences: {
-				nodeIntegration: true
-			}
-		}
-	}
-});
-
+const jbcp = new JBConfigProvider();
 let mainWindow;
 
 function createWindow () {
-	let window = config.get('window');
+	let window = jbcp.store.get('window');
 	mainWindow = new BrowserWindow(window);
 
 	mainWindow.loadFile('index.html');
@@ -29,10 +17,10 @@ function createWindow () {
 		let { width, height } = mainWindow.getBounds();
 
 		// load the all old values and update only the size
-		let window = config.get('window');
+		let window = jbcp.store.get('window');
 		window.width = width;
 		window.height = height;
-		config.set('window', window);
+		jbcp.store.set('window', window);
 	});
 	mainWindow.on('closed', function () {
 		mainWindow = null;
@@ -40,7 +28,7 @@ function createWindow () {
 }
 
 app.on('ready', function() {
-	if (process.platform == 'darwin') {
+	if (process.platform === 'darwin') {
 		app.quit();
 	}
 
