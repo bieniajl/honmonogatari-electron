@@ -1,6 +1,15 @@
 const electron = require('electron');
 var fs = require('fs');
 
+// synchronous get for settings
+console.log(electron.ipcRenderer.sendSync('jbcp-get', 'library'));
+// do not change the first value the second value is the key of the key value
+// storage which is the settings
+
+// asynchronous set for the settings
+electron.ipcRenderer.send('jbcp-set', { key: 'key', value: 'value'});
+// do not change the first value the second is a key value pair to store
+
 document.getElementById('select-file').addEventListener('click',function(){
 	electron.remote.dialog.showOpenDialog(function (fileNames) {
 		if(fileNames === undefined){
