@@ -9,23 +9,78 @@
 		<link href="./index.css" rel="stylesheet" id="styleSheet">
 	</head>
 	<body>
-		<div>
-			<div style="text-align:center;">
-				<i class="fas fa-bars"></i>
-				<input type="text" placeholder="Please select a file" id="actual-file" disabled="disabled"/>
-				<input type="button" value="Choose a file" id="select-file"/>
-			</div>
-			<br><br>
-			<textarea id="content-editor" rows="20" style="width: calc(100% - 8px)"></textarea><br><br>
-			<input type="button" id="save-changes" value="Save changes"/>
-			<input type="button" id="delete-file" value="Delete file"/>
-		</div>
-		<hr>
-		<div style="text-align:center;">
-			<p>
-				The file content will be the same as the editor.
-			</p>
-			<input type="button" value="Choose a file" id="create-new-file"/>
+		<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+			<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">JB</a>
+			<a class="mr-2">
+				<i class="fas fa-times fa-2x fa-inverse"></i>
+			</a>
+		</nav>
+		<div class="row m-0" width="100%">
+			<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+				<div class="sidebar-sticky">
+					<ul class="nav flex-column">
+						<li class="nav-item">
+							<a class="nav-link active" href="#">
+								<i class="nav-icon fas fa-file"></i>
+								File Test
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+								<i class="nav-icon fas fa-users"></i>
+								Characters
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+								<i class="nav-icon fas fa-map"></i>
+								Locations
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+								<i class="nav-icon fas fa-tasks"></i>
+								Tasks
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+								<i class="nav-icon fas fa-calendar-alt"></i>
+								Timeline
+							</a>
+						</li>
+					</ul>
+					<hr style="margin: 8px 14px">
+					<ul class="nav flex-column">
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+								<i class="nav-icon fas fa-cog"></i>
+								Settings
+							</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<main class="col-md-10 ml-sm-auto px-4">
+				<div>
+					<div style="text-align:center;">
+						<i class="fas fa-bars"></i>
+						<input type="text" placeholder="Please select a file" id="actual-file" disabled="disabled"/>
+						<input type="button" value="Choose a file" id="select-file"/>
+					</div>
+					<br><br>
+					<textarea id="content-editor" rows="20" style="width: 100%"></textarea><br><br>
+					<input type="button" id="save-changes" value="Save changes"/>
+					<input type="button" id="delete-file" value="Delete file"/>
+				</div>
+				<hr>
+				<div style="text-align:center;">
+					<p>
+						The file content will be the same as the editor.
+					</p>
+					<input type="button" value="Choose a file" id="create-new-file"/>
+				</div>
+			</main>
 		</div>
 
 		<script>window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.slim.min.js');</script>
