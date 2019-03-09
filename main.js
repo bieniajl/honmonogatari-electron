@@ -1,3 +1,4 @@
+const electron = require('electron');
 const {app, BrowserWindow} = require('electron');
 const {KVStore, JBConfigProvider} = require('./kv-store.js');
 const path = require('path');
@@ -6,8 +7,7 @@ const jbcp = new JBConfigProvider();
 let mainWindow;
 
 function createWindow () {
-	let window = jbcp.store.get('window');
-	mainWindow = new BrowserWindow(window);
+	mainWindow = new BrowserWindow(jbcp.store.get('window'));
 
 	mainWindow.loadFile('index.html');
 	mainWindow.webContents.openDevTools();
@@ -22,12 +22,16 @@ function createWindow () {
 		window.height = height;
 		jbcp.store.set('window', window);
 	});
-	mainWindow.on('closed', function () {
+	mainWindow.on('closed', () => {
 		mainWindow = null;
-	})
+	});
 }
 
-app.on('ready', function() {
+electron.ipcMain.on('app-close', () => {
+	app.quit();
+});
+
+app.on('ready', () => {
 	if (process.platform === 'darwin') {
 		app.quit();
 	}
@@ -35,14 +39,14 @@ app.on('ready', function() {
 	createWindow();
 });
 
-app.on('window-all-closed', function () {
+app.on('window-all-closed', () => {
 	if (process.platform !== 'darwin') {
 		app.quit();
 	}
 });
 
-app.on('activate', function () {
+app.on('activate', () => {
 	if (mainWindow === null) {
-		createWindow()
+		createWindow();
 	}
 });
