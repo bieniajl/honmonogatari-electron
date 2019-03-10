@@ -65,7 +65,9 @@
 				<h1>Character Creator</h1>
 				<button id="add" type="button"><i class="fas fa-plus-circle"></i> Add</button>
 				<hr>
-				TODO
+				<form>
+					<div id="data"></div>
+				</form>
 				<hr>
 				<div>
 					<div style="text-align:center;">
@@ -88,8 +90,38 @@
 			</main>
 		</div>
 
+		<div id="name-edit-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="name-edit-title" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 id="name-edit-title" class="modal-title">
+							<i class="fas fa-pen"></i>
+							Enter a new name
+						</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<input id="name-edit-input" class="form-control" type="text">
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-secondary" type="button" data-dismiss="modal">
+							<i class="fas fa-times"></i>
+							Close
+						</button>
+						<button id="name-edit-save" type="button" class="btn btn-primary">
+							<i class="fas fa-save"></i>
+							Save
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
 		<script>window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.slim.min.js');</script>
 		<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 		<script src="./application/index.js"></script>
+		<script src="./application/character.js"></script>
 	</body>
 </html>
