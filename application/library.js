@@ -49,7 +49,7 @@ class Book {
 	addCharacterAbility(character, name, strength = 0) {
 		return this.data.characters[character].abilities.push({
 			name: name,
-			strength: strength
+			value: strength
 		}) -1;
 	}
 

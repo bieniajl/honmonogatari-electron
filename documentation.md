@@ -20,11 +20,11 @@ folder, for the user to use. This file is a json file. For the structure and con
 			"abilities": [
 				{
 					"name": "fire",
-					"strength": 5
+					"value": 5
 				},
 				{
 					"name": "smithing",
-					"strength": 100
+					"value": 100
 				}
 			],
 			"items": [
