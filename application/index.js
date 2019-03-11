@@ -1,6 +1,4 @@
-const electron = require('electron');
 const Router = require('./application/router.js');
-const fs = require('fs');
 
 const router = new Router((route, data) => {
 	switch (route) {
