@@ -1,3 +1,8 @@
 {
-
+    "nav-fileTest": "File Test",
+    "nav-characters": "Characters",
+    "nav-locations": "Locations",
+    "nav-tasks": "Tasks",
+    "nav-timeline": "Timeline",
+    "nav-settings": "Settings"
 }
