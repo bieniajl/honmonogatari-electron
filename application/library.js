@@ -56,7 +56,7 @@ class Book {
 	addCharacterItem(character, name, count = 1) {
 		return this.data.characters[character].items.push({
 			name: name,
-			count: count
+			value: count
 		}) -1;
 	}
 }

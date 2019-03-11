@@ -12,6 +12,13 @@ $('#addAbility').click(() => {
 			+ current_book.data.characters[current_character].abilities.length);
 	run_name_edit_modal('ability', current_book.data.characters[current_character].abilities.length -1);
 });
+$('#addItem').click(() => {
+	addItemElement(current_book.data.characters[current_character].items.length);
+	current_book.addCharacterItem(current_character, 'Item_'
+			+ current_book.data.characters[current_character].items.length);
+	run_name_edit_modal('item', current_book.data.characters[current_character].items.length -1);
+});
+
 $('#name-edit-input').on('keypress', (event) => {
 	if (event.keyCode == 13) {
 		$('#name-edit-save').click();
@@ -26,6 +33,7 @@ let current_character = 0;
 function loadCharacter(current_book, character) {
 	$('#data').empty();
 	$('#abilities').empty();
+	$('#items').empty();
 
 	for (dataId in current_book.data.characters[character].data) {
 		data = current_book.data.characters[character].data[dataId];
@@ -35,6 +43,11 @@ function loadCharacter(current_book, character) {
 	for (abilityId in current_book.data.characters[character].abilities) {
 		ability = current_book.data.characters[character].abilities[abilityId];
 		addAbilityElement(abilityId, ability.name, ability.value);
+	}
+
+	for (itemId in current_book.data.characters[character].items) {
+		item = current_book.data.characters[character].items[itemId];
+		addItemElement(itemId, item.name, item.value);
 	}
 }
 
@@ -90,7 +103,7 @@ function addDataElement(type, count, name = 'Data_' + count, value = '') {
 	`;
 	$('#data').append(html);
 	$('#data-input-' + count).val(value);
-	$('#data-input-' + count).on('keyup', count, (event) => {
+	$('#data-input-' + count).on('change', count, (event) => {
 		current_book.data.characters[current_character].data[event.data].value = $('#data-input-' + count).val();
 	});
 	$('#data-edit-' + count).click(count, (event) => {
@@ -128,7 +141,7 @@ function addAbilityElement(count, name = 'Ability_' + count, value = 0) {
 	$('#ability-input-' + count).val(value);
 	$('#ability-input-' + count).on('change', count, (event) => {
 		current_book.data.characters[current_character].abilities[event.data].value =
-				$('#ability-input-' + count).val();
+				Number($('#ability-input-' + count).val());
 	});
 	$('#ability-edit-' + count).click(count, (event) => {
 		run_name_edit_modal('ability', event.data);
@@ -136,6 +149,43 @@ function addAbilityElement(count, name = 'Ability_' + count, value = 0) {
 	$('#ability-remove-' + count).click(count, (event) => {
 		$('#ability-div-' + event.data).remove();
 		current_book.data.characters[current_character].abilities[event.data].value = -1;
+	});
+}
+
+function addItemElement(count, name = 'Item_' + count, value = 1) {
+	if (value == -1) return;
+
+	$('#items').append(`
+<div id="item-div-${count}" class="form-group row">
+	<label id="item-label-${count}" for="item-input-${count}" class="col-md-5 col-form-label">
+		${name}
+	</label>
+	<div class="col-md-7">
+		<div class="input-group">
+			<input id="item-input-${count}" type="number" class="form-control" min="0">
+			<div class="input-group-append">
+				<button type="button" id="item-edit-${count}" class="btn btn-outline-secondary">
+					<i class="fas fa-wrench"></i>
+				</button>
+				<button type="button" id="item-remove-${count}" class="btn btn-outline-danger">
+					<i class="fas fa-backspace"></i>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+	`);
+	$('#item-input-' + count).val(value);
+	$('#item-input-' + count).on('change', count, (event) => {
+		current_book.data.characters[current_character].items[event.data].value =
+				Number($('#item-input-' + count).val());
+	});
+	$('#item-edit-' + count).click(count, (event) => {
+		run_name_edit_modal('item', event.data);
+	});
+	$('#item-remove-' + count).click(count, (event) => {
+		$('#item-div-' + event.data).remove();
+		current_book.data.characters[current_character].items[event.data].value = -1;
 	});
 }
 
@@ -153,6 +203,13 @@ function run_name_edit_modal(type, number) {
 					(new_name) => {
 				$('#ability-label-' + number).text(new_name);
 				current_book.data.characters[current_character].abilities[number].name = new_name;
+			});
+			break;
+		case 'item':
+			name_edit_modal_basic(current_book.data.characters[current_character].items[number].name,
+					(new_name) => {
+				$('#item-label-' + number).text(new_name);
+				current_book.data.characters[current_character].items[number].name = new_name;
 			});
 			break;
 		default:
