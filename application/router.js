@@ -12,22 +12,25 @@ class Router {
 	}
 
 	route(route_path = window.location.hash.substr(1).split(';')) {
-		var route = this.router(route_path[0], route_path.slice(1));
-		if (typeof route.page === "function") {
-			this.page = new route.page();
+		this.current_route = this.router(route_path[0], route_path.slice(1));
+		if (typeof this.current_route.page === "function") {
+			this.page = new this.current_route.page();
 
-			if (typeof route.html === "string") {
-				this.element.innerHTML = route.html;
+			if (typeof this.current_route.html === "string") {
+				this.element.innerHTML = this.current_route.html;
 			}
 
 			if (typeof this.page.init === "function") {
 				this.page.init();
 			}
 		} else {
-			if (typeof route.html === "string") {
-				this.element.innerHTML = route.html;
+			if (typeof this.current_route.html === "string") {
+				this.element.innerHTML = this.current_route.html;
 			}
 		}
+		let element = document.getElementById('nav-' + route_path[0]);
+		if (element != null)
+			element.className += " active";
 	}
 }
 
