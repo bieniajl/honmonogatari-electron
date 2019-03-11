@@ -62,90 +62,12 @@
 				</div>
 			</nav>
 			<main class="col-md-10 ml-sm-auto px-4">
-				<div class="dropdown float-right mt-2">
-					<button class="btn btn-secondary dropdown-toggle" type="button" id="add" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Add Attribute
-					</button>
-					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-						<a class="dropdown-item" id="addDataString" href="#">Text-based (Name)</a>
-						<a class="dropdown-item" id="addDataNumber" href="#">Number (Age)</a>
-						<a class="dropdown-item" id="addDataText" href="#">Free Text (Name Ethmology)</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" id="addAbility" href="#">Ability</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" id="addItem" href="#">Item</a>
-					</div>
-				</div>
-				<h1>Character Creator</h1>
-				<hr>
-				<form>
-					<h4>Personal Data:</h4>
-					<div id="data"></div>
-				</form>
-				<hr>
-				<form>
-					<h4>Character Abilities:</h4>
-					<div id="abilities"></div>
-				</form>
-				<hr>
-				<form>
-					<h4>Important Possessions:</h4>
-					<div id="items"></div>
-				</form>
-				<hr>
-				<div>
-					<div style="text-align:center;">
-						<i class="fas fa-bars"></i>
-						<input type="text" placeholder="Please select a file" id="actual-file" disabled="disabled"/>
-						<input type="button" value="Choose a file" id="select-file"/>
-					</div>
-					<br><br>
-					<textarea id="content-editor" rows="20" style="width: 100%"></textarea><br><br>
-					<input type="button" id="save-changes" value="Save changes"/>
-					<input type="button" id="delete-file" value="Delete file"/>
-				</div>
-				<hr>
-				<div style="text-align:center;">
-					<p>
-						The file content will be the same as the editor.
-					</p>
-					<input type="button" value="Choose a file" id="create-new-file"/>
-				</div>
+				<router></router>
 			</main>
-		</div>
-
-		<div id="name-edit-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="name-edit-title" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h5 id="name-edit-title" class="modal-title">
-							<i class="fas fa-pen"></i>
-							Enter a new name
-						</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-body">
-						<input id="name-edit-input" class="form-control" type="text">
-					</div>
-					<div class="modal-footer">
-						<button class="btn btn-secondary" type="button" data-dismiss="modal">
-							<i class="fas fa-times"></i>
-							Close
-						</button>
-						<button id="name-edit-save" type="button" class="btn btn-primary">
-							<i class="fas fa-save"></i>
-							Save
-						</button>
-					</div>
-				</div>
-			</div>
 		</div>
 
 		<script>window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.slim.min.js');</script>
 		<script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="./application/index.js"></script>
-		<script src="./application/character.js"></script>
 	</body>
 </html>
