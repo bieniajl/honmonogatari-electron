@@ -63,9 +63,18 @@
 			</nav>
 			<main class="col-md-10 ml-sm-auto px-4">
 				<h1>Character Creator</h1>
-				<button id="addData" type="button"><i class="fas fa-plus-circle"></i> Add Data</button>
-				<button id="addAbility" type="button"><i class="fas fa-plus-circle"></i> Add Ability</button>
-				<button id="addItem" type="button"><i class="fas fa-plus-circle"></i> Add Item</button>
+				<div class="dropdown float-right">
+					<button class="btn btn-secondary dropdown-toggle" type="button" id="add" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Add Attribute
+					</button>
+					<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+						<a class="dropdown-item" id="addDataString" href="#">Text-based (Name)</a>
+						<a class="dropdown-item" id="addDataNumber" href="#">Number (Age)</a>
+						<a class="dropdown-item" id="addDataText" href="#">Free Text (Name Ethmology)</a>
+						<a class="dropdown-item" id="addAbility" href="#">Ability</a>
+						<a class="dropdown-item" id="addItem" href="#">Item</a>
+					</div>
+				</div>
 				<hr>
 				<form>
 					<h4>Personal Data:</h4>
@@ -133,7 +142,7 @@
 		</div>
 
 		<script>window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.slim.min.js');</script>
-		<script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="./application/index.js"></script>
 		<script src="./application/character.js"></script>
 	</body>

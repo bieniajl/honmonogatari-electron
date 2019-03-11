@@ -7,6 +7,8 @@ const jbcp = new JBConfigProvider();
 let mainWindow;
 
 function createWindow () {
+	electron.Menu.setApplicationMenu(null);
+
 	mainWindow = new BrowserWindow(jbcp.store.get('window'));
 
 	mainWindow.loadFile('index.html');

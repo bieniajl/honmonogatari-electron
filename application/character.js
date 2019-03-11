@@ -1,9 +1,21 @@
 const { Library, Book } = require('./application/library.js');
 
-$('#addData').click(() => {
+$('#addDataString').click(() => {
 	addDataElement('string', current_book.data.characters[current_character].data.length);
 	current_book.addCharacterData(current_character,
 			'Data_' + current_book.data.characters[current_character].data.length, 'string');
+	run_name_edit_modal('data', current_book.data.characters[current_character].data.length -1);
+});
+$('#addDataNumber').click(() => {
+	addDataElement('number', current_book.data.characters[current_character].data.length);
+	current_book.addCharacterData(current_character,
+			'Data_' + current_book.data.characters[current_character].data.length, 'number');
+	run_name_edit_modal('data', current_book.data.characters[current_character].data.length -1);
+});
+$('#addDataText').click(() => {
+	addDataElement('text', current_book.data.characters[current_character].data.length);
+	current_book.addCharacterData(current_character,
+			'Data_' + current_book.data.characters[current_character].data.length, 'text');
 	run_name_edit_modal('data', current_book.data.characters[current_character].data.length -1);
 });
 $('#addAbility').click(() => {
