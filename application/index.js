@@ -1,8 +1,8 @@
 const electron = require('electron');
 const Router = require('./application/router.js');
-var fs = require('fs');
+const fs = require('fs');
 
-var router = new Router((route, data) => {
+const router = new Router((route, data) => {
 	switch (route) {
 		case 'pageA':
 			return require('./application/pages/pageA.js');
@@ -20,11 +20,11 @@ var router = new Router((route, data) => {
 });
 router.route();
 
-// synchronous get for settings
-console.log(electron.ipcRenderer.sendSync('jbcp-get', 'library'));
-// do not change the first value the second value is the key of the key value
-// storage which is the settings
+//// synchronous get for settings
+//console.log(electron.ipcRenderer.sendSync('jbcp-get', 'library'));
+//// do not change the first value the second value is the key of the key value
+//// storage which is the settings
 
-// asynchronous set for the settings
-electron.ipcRenderer.send('jbcp-set', { key: 'key', value: 'value'});
-// do not change the first value the second is a key value pair to store
+//// asynchronous set for the settings
+//electron.ipcRenderer.send('jbcp-set', { key: 'key', value: 'value'});
+//// do not change the first value the second is a key value pair to store
