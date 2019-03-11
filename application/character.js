@@ -1,10 +1,12 @@
 const { Library, Book } = require('./application/library.js');
 
-$('#add').click(() => {
-	//addDataElement('string', current_book.data.characters[current_character].data.length);
-	//current_book.addCharacterData(current_character,
-	//		'Item_' + current_book.data.characters[current_character].data.length, 'string');
-	//run_name_edit_modal('data', current_book.data.characters[current_character].data.length -1);
+$('#addData').click(() => {
+	addDataElement('string', current_book.data.characters[current_character].data.length);
+	current_book.addCharacterData(current_character,
+			'Data_' + current_book.data.characters[current_character].data.length, 'string');
+	run_name_edit_modal('data', current_book.data.characters[current_character].data.length -1);
+});
+$('#addAbility').click(() => {
 	addAbilityElement(current_book.data.characters[current_character].abilities.length);
 	current_book.addCharacterAbility(current_character, 'Ability_'
 			+ current_book.data.characters[current_character].abilities.length);
@@ -36,7 +38,7 @@ function loadCharacter(current_book, character) {
 	}
 }
 
-function addDataElement(type, count, name = 'Item_' + count, value = '') {
+function addDataElement(type, count, name = 'Data_' + count, value = '') {
 	let html = `
 <div id="data-div-${count}" class="form-group row">
 	<label id="data-label-${count}" for="data-input-${count}" class="col-md-2 col-form-label">
