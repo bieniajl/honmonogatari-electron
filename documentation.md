@@ -30,7 +30,7 @@ folder, for the user to use. This file is a json file. For the structure and con
 			"items": [
 				{
 					"name": "dagger",
-					"count": "100"
+					"value": "100"
 				}
 			],
 			"relations": []
