@@ -1,3 +1,8 @@
 {
-
+    "nav-fileTest": "Datei Test",
+    "nav-characters": "Charaktere",
+    "nav-locations": "Orte",
+    "nav-tasks": "Aufgaben",
+    "nav-timeline": "Zeitlinie",
+    "nav-settings": "Einstellungen"
 }

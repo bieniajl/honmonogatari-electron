@@ -8,6 +8,8 @@ const router = new Router((route, data) => {
 			return require('./application/pages/file-test.js');
 		case 'character':
 			return require('./application/pages/character.js');
+		case 'settings':
+			return require('./application/pages/settings.js');
 		default:
 			return {
 				html: `
