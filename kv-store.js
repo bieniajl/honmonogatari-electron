@@ -35,6 +35,7 @@ class JBConfigProvider {
 			name: "preferences",
 			defaults: {
 				library: path.join(electron.app.getPath('userData'), 'library'),
+				locale: "en",
 				window: {
 					width: 800,
 					height: 600,
