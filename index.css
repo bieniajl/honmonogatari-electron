@@ -1,9 +1,20 @@
+@font-face {
+	font-family: 'AiharaHudemojiKaisho';
+	src: url('./resources/AiharaHudemojiKaisho3.00.ttf');
+}
+
 body {
 	font-size: .875rem;
 }
 
 main {
-	padding-top: 50px;
+	padding-top: 58px;
+}
+
+.navbar-brand {
+	font-family: AiharaHudemojiKaisho;
+	text-align: center;
+	cursor: default;
 }
 
 .sidebar {
