@@ -4,5 +4,16 @@
     "nav-locations": "Locations",
     "nav-tasks": "Tasks",
     "nav-timeline": "Timeline",
-    "nav-settings": "Settings"
+    "nav-settings": "Settings",
+
+    "character-addAttribute": "Add Attribute",
+    "character-addDataString": "Text-based (Name)",
+    "character-addDataNumber": "Number (Age)",
+    "character-addDataText": "Free Text (Name Ethymology)",
+    "character-addAbility": "Ability",
+    "character-addItem": "Item",
+    "character-header": "Character Creator",
+    "character-data": "Personal Data",
+    "character-abilities": "Abilities",
+    "character-inventory": "Possesions"
 }

@@ -4,5 +4,16 @@
     "nav-locations": "Orte",
     "nav-tasks": "Aufgaben",
     "nav-timeline": "Zeitlinie",
-    "nav-settings": "Einstellungen"
+    "nav-settings": "Einstellungen",
+
+    "character-addAttribute": "Neues Attribut",
+    "character-addDataString": "Textbasiert (Name)",
+    "character-addDataNumber": "Nummer (Alter)",
+    "character-addDataText": "Freitext (Names Herkunft)",
+    "character-addAbility": "Fähigkeit",
+    "character-addItem": "Gegenstand",
+    "character-header": "Charakter Ersteller",
+    "character-data": "Persönliche Daten",
+    "character-abilities": "Fähigkeiten",
+    "character-inventory": "Besitztümer"
 }

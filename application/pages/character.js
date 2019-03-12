@@ -253,32 +253,32 @@ module.exports = {
 	html: `
 <div class="dropdown float-right mt-2">
 	<button class="btn btn-secondary dropdown-toggle" type="button" id="add" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		Add Attribute
+		${translate.get('character-addAttribute')}
 	</button>
 	<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-		<a class="dropdown-item" id="addDataString" href="#">Text-based (Name)</a>
-		<a class="dropdown-item" id="addDataNumber" href="#">Number (Age)</a>
-		<a class="dropdown-item" id="addDataText" href="#">Free Text (Name Ethmology)</a>
+		<a class="dropdown-item" id="addDataString" href="#">${translate.get('character-addDataString')}</a>
+		<a class="dropdown-item" id="addDataNumber" href="#">${translate.get('character-addDataNumber')}</a>
+		<a class="dropdown-item" id="addDataText" href="#">${translate.get('character-addDataText')}</a>
 		<div class="dropdown-divider"></div>
-		<a class="dropdown-item" id="addAbility" href="#">Ability</a>
+		<a class="dropdown-item" id="addAbility" href="#">${translate.get('character-addAbility')}</a>
 		<div class="dropdown-divider"></div>
-		<a class="dropdown-item" id="addItem" href="#">Item</a>
+		<a class="dropdown-item" id="addItem" href="#">${translate.get('character-addItem')}</a>
 	</div>
 </div>
-<h1>Character Creator</h1>
+<h1>${translate.get('character-header')}</h1>
 <hr>
 <form>
-	<h4>Personal Data:</h4>
+	<h4>${translate.get('character-data')}:</h4>
 	<div id="data"></div>
 </form>
 <hr>
 <form>
-	<h4>Character Abilities:</h4>
+	<h4>${translate.get('character-abilities')}:</h4>
 	<div id="abilities"></div>
 </form>
 <hr>
 <form>
-	<h4>Important Possessions:</h4>
+	<h4>${translate.get('character-inventory')}:</h4>
 	<div id="items"></div>
 </form>
 
