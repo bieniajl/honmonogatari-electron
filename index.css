@@ -1,18 +1,18 @@
 @font-face {
-	font-family: 'AiharaHudemojiKaisho';
-	src: url('./resources/AiharaHudemojiKaisho3.00.ttf');
+	font-family: 'Honoka';
+	src: url('./resources/font_1_honokamarugo_1.1.ttf');
 }
 
 body {
+	font-family: Honoka;
 	font-size: .875rem;
 }
 
 main {
-	padding-top: 58px;
+	padding-top: 60px;
 }
 
 .navbar-brand {
-	font-family: AiharaHudemojiKaisho;
 	text-align: center;
 	cursor: default;
 }
