@@ -253,6 +253,7 @@ module.exports = {
 	html: `
 <div class="dropdown float-right mt-2">
 	<button class="btn btn-secondary dropdown-toggle" type="button" id="add" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		<i class="fas fa-plus"></i>
 		${translate.get('character-addAttribute')}
 	</button>
 	<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
