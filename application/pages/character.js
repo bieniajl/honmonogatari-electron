@@ -142,7 +142,7 @@ class Character {
 		</label>
 		<div class="col-md-7">
 			<div class="input-group">
-				<input id="ability-input-${count}" type="range" class="form-control custom-range" min="0" max="10" style="height: 38px">
+				<input id="ability-input-${count}" type="range" class="form-control custom-range px-2" min="0" max="10" style="height: 38px">
 				<div class="input-group-append">
 					<button type="button" id="ability-edit-${count}" class="btn btn-outline-secondary">
 						<i class="fas fa-wrench"></i>
