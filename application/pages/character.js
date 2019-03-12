@@ -288,7 +288,7 @@ module.exports = {
 			<div class="modal-header">
 				<h5 id="name-edit-title" class="modal-title">
 					<i class="fas fa-pen"></i>
-					Enter a new name
+					${translate.get('character-modal-desc')}
 				</h5>
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<span aria-hidden="true">&times;</span>
@@ -300,11 +300,11 @@ module.exports = {
 			<div class="modal-footer">
 				<button class="btn btn-secondary" type="button" data-dismiss="modal">
 					<i class="fas fa-times"></i>
-					Close
+					${translate.get('general-close')}
 				</button>
 				<button id="name-edit-save" type="button" class="btn btn-primary">
 					<i class="fas fa-save"></i>
-					Save
+					${translate.get('general-save')}
 				</button>
 			</div>
 		</div>

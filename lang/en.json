@@ -1,4 +1,7 @@
 {
+    "general-close": "Close",
+    "general-save": "Save",
+
     "nav-fileTest": "File Test",
     "nav-characters": "Characters",
     "nav-locations": "Locations",
@@ -15,5 +18,6 @@
     "character-header": "Character Creator",
     "character-data": "Personal Data",
     "character-abilities": "Abilities",
-    "character-inventory": "Possesions"
+    "character-inventory": "Possesions",
+    "character-modal-desc": "Enter a new Name"
 }

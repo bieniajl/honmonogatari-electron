@@ -1,4 +1,7 @@
 {
+    "general-close": "Schließen",
+    "general-save": "Speichern",
+
     "nav-fileTest": "Datei Test",
     "nav-characters": "Charaktere",
     "nav-locations": "Orte",
@@ -15,5 +18,6 @@
     "character-header": "Charakter Ersteller",
     "character-data": "Persönliche Daten",
     "character-abilities": "Fähigkeiten",
-    "character-inventory": "Besitztümer"
+    "character-inventory": "Besitztümer",
+    "character-modal-desc": "Gib einen Namen ein"
 }
