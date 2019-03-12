@@ -9,6 +9,33 @@ let mainWindow;
 function createWindow () {
 	electron.Menu.setApplicationMenu(null);
 
+	/* https://electronjs.org/docs/api/menu-item
+	const mainMenu = Menu.buildFromTemplate(menuTemplate);
+	Menu.setApplicationMenu(mainMenu);
+
+	const menuTemplate = [
+		{
+			label: "File",
+			submenu:[
+				{
+					label: "Test"
+				},
+				{
+					label: "Quit",
+					accelerator: "Ctrl+Q",
+					click() {
+						app.quit();
+					}
+				}
+			],
+
+		},
+		{
+			label: "About"
+		}
+	]
+	*/
+
 	mainWindow = new BrowserWindow(jbcp.store.get('window'));
 
 	mainWindow.loadFile('index.html');
