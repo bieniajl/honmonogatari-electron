@@ -1,24 +1,48 @@
 const Router = require('./application/router.js');
 
-const router = new Router((route, data) => {
-	switch (route) {
-		case 'pageA':
-			return require('./application/pages/pageA.js');
-		case 'file-test':
-			return require('./application/pages/file-test.js');
-		case 'character':
-			return require('./application/pages/character.js');
-		case 'settings':
-			return require('./application/pages/settings.js');
-		default:
-			return {
-				html: `
-					<p>Default Page</p>
-				`
-			};
+const character_routing = {
+	'edit': {
+		type: 'page',
+		page: require('./application/pages/character/edit.js')
+	},
+	'main': {
+		type: 'page',
+		page: require('./application/pages/character/main.js')
+	},
+	'': {
+		type: 'page',
+		page: require('./application/pages/character/main.js')
 	}
-});
-router.route();
+};
+
+const main_routing = {
+	'pageA': {
+		type: 'page',
+		page: require('./application/pages/pageA.js')
+	},
+	'file-test': {
+		type: 'page',
+		page: require('./application/pages/file-test.js')
+	},
+	'character': {
+		type: 'routing',
+		routing: character_routing
+	},
+	'settings': {
+		type: 'page',
+		page: require('./application/pages/settings.js')
+	},
+	'': {
+		type: 'page',
+		page: {
+			html: `
+				<p>Default Page</p>
+			`
+		}
+	}
+};
+
+const router = new Router(main_routing);
 
 //// synchronous get for settings
 //console.log(electron.ipcRenderer.sendSync('jbcp-get', 'library'));

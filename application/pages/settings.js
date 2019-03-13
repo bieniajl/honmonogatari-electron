@@ -1,21 +1,21 @@
-class Page {
+class Settings {
 	constructor() {
 	}
 
 	init() {
 		$('#language-DE').click(() => {
 			electron.ipcRenderer.send('jbcp-set', { key: 'locale', value: 'de'});
-			window.location.reload();
+			router.reload();
 		});
 		$('#language-EN').click(() => {
 			electron.ipcRenderer.send('jbcp-set', { key: 'locale', value: 'en'});
-			window.location.reload();
+			router.reload();
 		});
 	}
 }
 
 module.exports = {
-	page: Page,
+	page: Settings,
 	html: `
 <div class="btn-group" role="group" aria-label="Basic example">
 	<button type="button" class="btn btn-secondary" id="language-EN">EN</button>

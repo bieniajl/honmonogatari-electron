@@ -1,36 +1,49 @@
-const default_router = () => {
-	return {
-		page: null,
-		html: '<p>No Router Added</p>'
-	};
-}
-
 class Router {
-	constructor(router = default_router) {
-		this.router = router;
-		this.element = document.getElementsByTagName('router')[0];
+	constructor(routing) {
+		this.routing = routing;
+		this.outlet = document.getElementsByTagName('router')[0];
+
+		this.loadRoute(this.routing, window.location.hash.substr(1).split(';'));
 	}
 
-	route(route_path = window.location.hash.substr(1).split(';')) {
-		this.current_route = this.router(route_path[0], route_path.slice(1));
-		if (typeof this.current_route.page === "function") {
-			this.page = new this.current_route.page();
+	loadRoute(routing, route_data) {
+		let route = routing[route_data[0] === undefined ? '' : route_data[0]];
 
-			if (typeof this.current_route.html === "string") {
-				this.element.innerHTML = this.current_route.html;
-			}
-
-			if (typeof this.page.init === "function") {
-				this.page.init();
-			}
-		} else {
-			if (typeof this.current_route.html === "string") {
-				this.element.innerHTML = this.current_route.html;
-			}
+		switch (route.type) {
+			case 'page':
+				this.loadPage(route.page, route_data.slice(1));
+				break;
+			case 'routing':
+				this.loadRoute(route.routing, route_data.slice(1));
+				break;
 		}
-		let element = document.getElementById('nav-' + route_path[0]);
-		if (element != null)
-			element.className += " active";
+	}
+
+	loadPage(page, data) {
+		if (this.page !== undefined)
+			this.outlet.innerHTML = "";
+
+		if (page.page === undefined) {
+			this.page = "static"
+		} else {
+			this.page = new page.page(data);
+		}
+
+		if (page.html !== undefined)
+			this.outlet.innerHTML = page.html;
+
+		if (typeof this.page.init === "function")
+			this.page.init();
+	}
+
+	navigate(route) {
+		this.outlet.innerHTML = "";
+		window.location.hash = "#" + route;
+		this.loadRoute(this.routing, window.location.hash.substr(1).split(';'));
+	}
+
+	reload() {
+		window.location.reload();
 	}
 }
 

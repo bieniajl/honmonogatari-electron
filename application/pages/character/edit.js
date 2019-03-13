@@ -1,6 +1,6 @@
-const { Library, Book } = require('../library.js');
+const { Library, Book } = require('../../library.js');
 
-class Character {
+class CharacterEdit {
 	constructor() {
 		let lib = new Library(electron.ipcRenderer.sendSync('jbcp-get', 'library'));
 		this.current_book = lib.addBook('tmp');
@@ -249,7 +249,7 @@ class Character {
 }
 
 module.exports = {
-	page: Character,
+	page: CharacterEdit,
 	html: `
 <div class="dropdown float-right mt-2">
 	<button class="btn btn-secondary dropdown-toggle" type="button" id="add" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
