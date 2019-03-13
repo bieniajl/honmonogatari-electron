@@ -9,13 +9,17 @@
     "nav-timeline": "Timeline",
     "nav-settings": "Settings",
 
+    "character-main-header": "Character Manager",
+    "character-main-character": "Characters",
+    "character-main-addBtn": "Add Character",
+
     "character-addAttribute": "Add Attribute",
     "character-addDataString": "Text-based (Name)",
     "character-addDataNumber": "Number (Age)",
     "character-addDataText": "Free Text (Name Ethymology)",
     "character-addAbility": "Ability",
     "character-addItem": "Item",
-    "character-header": "Character Creator",
+    "character-header": "Character Editor",
     "character-data": "Personal Data",
     "character-abilities": "Abilities",
     "character-inventory": "Possesions",

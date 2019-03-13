@@ -1,43 +1,38 @@
-const { Library, Book } = require('../../library.js');
-
 class CharacterEdit {
 	constructor(current_character) {
-		let lib = new Library(electron.ipcRenderer.sendSync('jbcp-get', 'library'));
-		this.current_book = lib.addBook('tmp');
-		this.current_book.addCharacter();
-		this.current_character = current_character;
+		this.current_character = current_character[0];
 	}
 
 	init() {
 		$('#addDataString').click(() => {
-			this.addDataElement('string', this.current_book.data.characters[this.current_character].data.length);
-			this.current_book.addCharacterData(this.current_character,
-					'Data_' + this.current_book.data.characters[this.current_character].data.length, 'string');
-			this.run_name_edit_modal('data', this.current_book.data.characters[this.current_character].data.length -1);
+			this.addDataElement('string', current_book.data.characters[this.current_character].data.length);
+			current_book.addCharacterData(this.current_character,
+					'Data_' + current_book.data.characters[this.current_character].data.length, 'string');
+			this.run_name_edit_modal('data', current_book.data.characters[this.current_character].data.length -1);
 		});
 		$('#addDataNumber').click(() => {
-			this.addDataElement('number', this.current_book.data.characters[this.current_character].data.length);
-			this.current_book.addCharacterData(this.current_character,
-					'Data_' + this.current_book.data.characters[this.current_character].data.length, 'number');
-			this.run_name_edit_modal('data', this.current_book.data.characters[this.current_character].data.length -1);
+			this.addDataElement('number', current_book.data.characters[this.current_character].data.length);
+			current_book.addCharacterData(this.current_character,
+					'Data_' + current_book.data.characters[this.current_character].data.length, 'number');
+			this.run_name_edit_modal('data', current_book.data.characters[this.current_character].data.length -1);
 		});
 		$('#addDataText').click(() => {
-			this.addDataElement('text', this.current_book.data.characters[this.current_character].data.length);
-			this.current_book.addCharacterData(this.current_character,
-					'Data_' + this.current_book.data.characters[this.current_character].data.length, 'text');
-			this.run_name_edit_modal('data', this.current_book.data.characters[this.current_character].data.length -1);
+			this.addDataElement('text', current_book.data.characters[this.current_character].data.length);
+			current_book.addCharacterData(this.current_character,
+					'Data_' + current_book.data.characters[this.current_character].data.length, 'text');
+			this.run_name_edit_modal('data', current_book.data.characters[this.current_character].data.length -1);
 		});
 		$('#addAbility').click(() => {
-			this.addAbilityElement(this.current_book.data.characters[this.current_character].abilities.length);
-			this.current_book.addCharacterAbility(this.current_character, 'Ability_'
-					+ this.current_book.data.characters[this.current_character].abilities.length);
-			this.run_name_edit_modal('ability', this.current_book.data.characters[this.current_character].abilities.length -1);
+			this.addAbilityElement(current_book.data.characters[this.current_character].abilities.length);
+			current_book.addCharacterAbility(this.current_character, 'Ability_'
+					+ current_book.data.characters[this.current_character].abilities.length);
+			this.run_name_edit_modal('ability', current_book.data.characters[this.current_character].abilities.length -1);
 		});
 		$('#addItem').click(() => {
-			this.addItemElement(this.current_book.data.characters[this.current_character].items.length);
-			this.current_book.addCharacterItem(this.current_character, 'Item_'
-					+ this.current_book.data.characters[this.current_character].items.length);
-			this.run_name_edit_modal('item', this.current_book.data.characters[this.current_character].items.length -1);
+			this.addItemElement(current_book.data.characters[this.current_character].items.length);
+			current_book.addCharacterItem(this.current_character, 'Item_'
+					+ current_book.data.characters[this.current_character].items.length);
+			this.run_name_edit_modal('item', current_book.data.characters[this.current_character].items.length -1);
 		});
 
 		$('#name-edit-input').on('keypress', (event) => {
@@ -45,25 +40,27 @@ class CharacterEdit {
 				$('#name-edit-save').click();
 			}
 		});
+
+		this.loadCharacter();
 	}
 
-	loadCharacter(current_book, character) {
+	loadCharacter(character = this.current_character) {
 		$('#data').empty();
 		$('#abilities').empty();
 		$('#items').empty();
 
-		for (dataId in current_book.data.characters[character].data) {
-			data = current_book.data.characters[character].data[dataId];
+		for (let dataId in current_book.data.characters[character].data) {
+			let data = current_book.data.characters[character].data[dataId];
 			this.addDataElement(data.type, dataId, data.name, data.value);
 		}
 
-		for (abilityId in current_book.data.characters[character].abilities) {
-			ability = current_book.data.characters[character].abilities[abilityId];
+		for (let abilityId in current_book.data.characters[character].abilities) {
+			let ability = current_book.data.characters[character].abilities[abilityId];
 			this.addAbilityElement(abilityId, ability.name, ability.value);
 		}
 
-		for (itemId in current_book.data.characters[character].items) {
-			item = current_book.data.characters[character].items[itemId];
+		for (let itemId in current_book.data.characters[character].items) {
+			let item = current_book.data.characters[character].items[itemId];
 			this.addItemElement(itemId, item.name, item.value);
 		}
 	}
@@ -121,14 +118,14 @@ class CharacterEdit {
 		$('#data').append(html);
 		$('#data-input-' + count).val(value);
 		$('#data-input-' + count).on('change', count, (event) => {
-			this.current_book.data.characters[this.current_character].data[event.data].value = $('#data-input-' + count).val();
+			current_book.data.characters[this.current_character].data[event.data].value = $('#data-input-' + count).val();
 		});
 		$('#data-edit-' + count).click(count, (event) => {
 			this.run_name_edit_modal('data', event.data);
 		});
 		$('#data-remove-' + count).click(count, (event) => {
 			$('#data-div-' + event.data).remove();
-			this.current_book.data.characters[this.current_character].data[event.data].type = 'deleted';
+			current_book.data.characters[this.current_character].data[event.data].type = 'deleted';
 		});
 	}
 
@@ -157,7 +154,7 @@ class CharacterEdit {
 		`);
 		$('#ability-input-' + count).val(value);
 		$('#ability-input-' + count).on('change', count, (event) => {
-			this.current_book.data.characters[this.current_character].abilities[event.data].value =
+			current_book.data.characters[this.current_character].abilities[event.data].value =
 					Number($('#ability-input-' + count).val());
 		});
 		$('#ability-edit-' + count).click(count, (event) => {
@@ -165,7 +162,7 @@ class CharacterEdit {
 		});
 		$('#ability-remove-' + count).click(count, (event) => {
 			$('#ability-div-' + event.data).remove();
-			this.current_book.data.characters[this.current_character].abilities[event.data].value = -1;
+			current_book.data.characters[this.current_character].abilities[event.data].value = -1;
 		});
 	}
 
@@ -194,7 +191,7 @@ class CharacterEdit {
 		`);
 		$('#item-input-' + count).val(value);
 		$('#item-input-' + count).on('change', count, (event) => {
-			this.current_book.data.characters[this.current_character].items[event.data].value =
+			current_book.data.characters[this.current_character].items[event.data].value =
 					Number($('#item-input-' + count).val());
 		});
 		$('#item-edit-' + count).click(count, (event) => {
@@ -202,31 +199,31 @@ class CharacterEdit {
 		});
 		$('#item-remove-' + count).click(count, (event) => {
 			$('#item-div-' + event.data).remove();
-			this.current_book.data.characters[this.current_character].items[event.data].value = -1;
+			current_book.data.characters[this.current_character].items[event.data].value = -1;
 		});
 	}
 
 	run_name_edit_modal(type, number) {
 		switch (type) {
 			case 'data':
-				this.name_edit_modal_basic(this.current_book.data.characters[this.current_character].data[number].name,
+				this.name_edit_modal_basic(current_book.data.characters[this.current_character].data[number].name,
 						(new_name) => {
 					$('#data-label-' + number).text(new_name + ':');
-					this.current_book.data.characters[this.current_character].data[number].name = new_name;
+					current_book.data.characters[this.current_character].data[number].name = new_name;
 				});
 				break;
 			case 'ability':
-				this.name_edit_modal_basic(this.current_book.data.characters[this.current_character].abilities[number].name,
+				this.name_edit_modal_basic(current_book.data.characters[this.current_character].abilities[number].name,
 						(new_name) => {
 					$('#ability-label-' + number).text(new_name);
-					this.current_book.data.characters[this.current_character].abilities[number].name = new_name;
+					current_book.data.characters[this.current_character].abilities[number].name = new_name;
 				});
 				break;
 			case 'item':
-				this.name_edit_modal_basic(this.current_book.data.characters[this.current_character].items[number].name,
+				this.name_edit_modal_basic(current_book.data.characters[this.current_character].items[number].name,
 						(new_name) => {
 					$('#item-label-' + number).text(new_name);
-					this.current_book.data.characters[this.current_character].items[number].name = new_name;
+					current_book.data.characters[this.current_character].items[number].name = new_name;
 				});
 				break;
 			default:

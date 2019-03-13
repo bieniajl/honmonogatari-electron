@@ -9,13 +9,17 @@
     "nav-timeline": "Zeitlinie",
     "nav-settings": "Einstellungen",
 
+    "character-main-header": "Charakter Manager",
+    "character-main-character": "Charaktere",
+    "character-main-addBtn": "Charakter hinzufühgen",
+
     "character-addAttribute": "Neues Attribut",
     "character-addDataString": "Textbasiert (Name)",
     "character-addDataNumber": "Nummer (Alter)",
     "character-addDataText": "Freitext (Names Herkunft)",
     "character-addAbility": "Fähigkeit",
     "character-addItem": "Gegenstand",
-    "character-header": "Charakter Ersteller",
+    "character-header": "Charakter Editor",
     "character-data": "Persönliche Daten",
     "character-abilities": "Fähigkeiten",
     "character-inventory": "Besitztümer",
