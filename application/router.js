@@ -1,3 +1,7 @@
+const broken_route_page = { html: `
+<p>Broken Route: <span id="error"></span></p>
+`};
+
 class Router {
 	constructor(routing) {
 		this.routing = routing;
@@ -8,6 +12,12 @@ class Router {
 
 	loadRoute(routing, route_data) {
 		let route = routing[route_data[0] === undefined ? '' : route_data[0]];
+
+		if (route === undefined) {
+			this.loadPage(broken_route_page, null);
+			document.getElementById('error').innerHTML = window.location.hash;
+			return;
+		}
 
 		switch (route.type) {
 			case 'page':
