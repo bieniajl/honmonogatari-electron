@@ -3,6 +3,9 @@ const path = require('path');
 class Library {
 	constructor(folder) {
 		this.basepath = folder
+		try {
+			fs.mkdirSync(folder, { recursive: true });
+		} catch (EEXIST) {}
 	}
 
 	getBooks() {
@@ -10,16 +13,20 @@ class Library {
 	}
 
 	addBook(name) {
-		return new Book(path.join(this.basepath, name), {
+		let book = new Book(path.join(this.basepath, name), {
 			characters: [],
 			locations: [],
 			items: [],
 			chapters: {}
-		}); //TODO save book to disk
+		});
+		book.save();
+		return book;
 	}
 
-	loadBook(name) {
-		return {}; //TODO load book from disk
+	loadBook(name, autocreate = false) {
+		let file_path = path.join(this.basepath, name);
+		let data = JSON.parse(fs.readFileSync(file_path, { encoding: 'utf-8'}));
+		return new Book(file_path, data);
 	}
 }
 
@@ -58,6 +65,15 @@ class Book {
 			name: name,
 			value: count
 		}) -1;
+	}
+
+	save() {
+		fs.writeFile(this.path, JSON.stringify(this.data), (error) => {
+			if (error) {
+				alert("Can't save file <" + this.path + ">\n" + error.message);
+				console.log(error);
+			}
+		});
 	}
 }
 

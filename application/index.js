@@ -44,9 +44,11 @@ const main_routing = {
 };
 
 const library = new Library(electron.ipcRenderer.sendSync('jbcp-get', 'library'));
-var current_book = library.addBook('tmp');
+var current_book = library.loadBook('tmp');
 
-const router = new Router(main_routing);
+const router = new Router(main_routing).setReloadCallback(() => {
+	current_book.save();
+}).route();
 
 //// synchronous get for settings
 //console.log(electron.ipcRenderer.sendSync('jbcp-get', 'library'));

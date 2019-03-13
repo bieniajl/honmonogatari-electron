@@ -6,8 +6,16 @@ class Router {
 	constructor(routing) {
 		this.routing = routing;
 		this.outlet = document.getElementsByTagName('router')[0];
+	}
 
+	setReloadCallback(callback) {
+		this.reloadCallback = callback;
+		return this;
+	}
+
+	route() {
 		this.loadRoute(this.routing, window.location.hash.substr(1).split(';'));
+		return this;
 	}
 
 	loadRoute(routing, route_data) {
@@ -53,6 +61,8 @@ class Router {
 	}
 
 	reload() {
+		if (typeof this.reloadCallback === 'function')
+			this.reloadCallback();
 		window.location.reload();
 	}
 }

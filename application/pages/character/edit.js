@@ -118,7 +118,7 @@ class CharacterEdit {
 		$('#data').append(html);
 		$('#data-input-' + count).val(value);
 		$('#data-input-' + count).on('change', count, (event) => {
-			current_book.data.characters[this.current_character].data[event.data].value = $('#data-input-' + count).val();
+			current_book.data.characters[this.current_character].data[event.data].value = $('#data-input-' + event.data).val();
 		});
 		$('#data-edit-' + count).click(count, (event) => {
 			this.run_name_edit_modal('data', event.data);

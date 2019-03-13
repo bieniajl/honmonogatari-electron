@@ -15,10 +15,10 @@ class CharacterMain {
 
 		for (let characterId in current_book.data.characters) {
 			let character = current_book.data.characters[characterId];
-			if (isEmpty(character)) continue;
+			//if (isEmpty(character)) continue;
 			let name = 'Character_' + characterId;
-			if (!isEmpty(character.data[0]))
-				name = character.data[0].name + ': ' + character.data[0].value;
+			//if (!isEmpty(character.data[0]))
+				//name = character.data[0].name + ': ' + character.data[0].value;
 			this.addCharacterElement(characterId, name);
 		}
 	}
