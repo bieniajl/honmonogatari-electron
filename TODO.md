@@ -6,5 +6,5 @@
     - scale: "relative/absolute"
     - style: "smoothed/flat"
     - lable: "show/hide"
-  - documentation in documentation.md or docu/radarChart.md on how to use
+  - documentation in documentation.md or docs/radarChart.md on how to use
   - add bugs to fix later
