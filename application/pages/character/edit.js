@@ -1,11 +1,11 @@
 const { Library, Book } = require('../../library.js');
 
 class CharacterEdit {
-	constructor() {
+	constructor(current_character) {
 		let lib = new Library(electron.ipcRenderer.sendSync('jbcp-get', 'library'));
 		this.current_book = lib.addBook('tmp');
 		this.current_book.addCharacter();
-		this.current_character = 0;
+		this.current_character = current_character;
 	}
 
 	init() {
