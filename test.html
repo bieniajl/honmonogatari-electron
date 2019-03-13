@@ -1,0 +1,16 @@
+
+<div id="test"></div>
+<script src="./node_modules/d3/d3.min.js"></script>
+<script src="./application/util/radarChart.js"></script>
+<script>
+	//const RadarChart = require("./application/util/radarChart.js");
+	let data = [
+		[
+			{axis: "Destruction", value: 65},
+			{axis: "Conjuration", value: 20},
+			{axis: "Restoration", value: 78}
+		]
+	]
+
+	let chart1 = new RadarChart('#test', data);
+</script>
