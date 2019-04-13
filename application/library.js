@@ -31,7 +31,7 @@ class Library {
 			console.log("a");
 		} catch (e) {
 			if (e.code === "ENOENT" && autocreate) {
-				return this.addBook("test");
+				return this.addBook(name);
 			}
 			else {
 				throw e;
