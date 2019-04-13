@@ -25,7 +25,18 @@ class Library {
 
 	loadBook(name, autocreate = false) {
 		let file_path = path.join(this.basepath, name);
-		let data = JSON.parse(fs.readFileSync(file_path, { encoding: 'utf-8'}));
+		let data;
+		try {
+			data = JSON.parse(fs.readFileSync(file_path, { encoding: 'utf-8'}));
+			console.log("a");
+		} catch (e) {
+			if (e.code === "ENOENT") {
+				return this.addBook("test");
+			}
+			else {
+				throw e;
+			}
+		}
 		return new Book(file_path, data);
 	}
 }
