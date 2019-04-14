@@ -16,7 +16,10 @@ class CharacterView {
 		for (let abilityId in current_book.data.characters[this.current_character].abilities) {
 			let ability = current_book.data.characters[this.current_character].abilities[abilityId];
 			this.addAbilityElement(abilityId, ability.name, ability.value);
-			radarChartData[0].push({ axis: ability.name, value: ability.value});
+
+			if (ability.value > 0) {
+				radarChartData[0].push({ axis: ability.name, value: ability.value});
+			}
 		}
 
 		for (let itemId in current_book.data.characters[this.current_character].items) {
