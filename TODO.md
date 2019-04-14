@@ -1,5 +1,21 @@
 # TODOs
 
+## router
+
+  - fix callback
+  - add html-file attribute
+  - add css attribute
+  - add css-file attribute
+  - write doc
+
+
+## library
+
+  - write file selector dialogs
+  - save last active file and load on startup
+  - implement templates and template loading
+
+
 ## application/util/radarChart.js
 
   - Settings loading with `electron.ipcRenderer.sendSync('jbcp-get', 'radarChart')`
