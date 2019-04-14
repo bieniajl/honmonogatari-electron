@@ -25,10 +25,10 @@ class RadarChart {
 		this.element = element;
 		this.data = data;
 
-		if('undefined' !== typeof options) {
+		if(typeof options !== 'undefined') {
 			for (const elem in options) {
-				if ('undefined' !== typeof options[i]) {
-					config[elem] = options[elem];
+				if (typeof options[elem] !== 'undefined') {
+					this.config[elem] = options[elem];
 				}
 			}
 		}

@@ -11,6 +11,12 @@
 			{axis: "Restoration", value: 78}
 		]
 	]
+	let a = {
+		roundStrokes: false,
+		margin: {top: 100, right: 100, bottom: 100, left: 100}
+	}
+	console.log(data[0]);
+	let chart1 = new RadarChart('#test', data, a);
+	</script>
 
-	let chart1 = new RadarChart('#test', data);
-</script>
+<button type="button" onclick="data[0].push({axis: 'Test', value: Math.floor(Math.random() * 100)});chart1.redraw();">Click Me!</button>
