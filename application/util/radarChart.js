@@ -4,6 +4,8 @@
  * https://github.com/alangrafu/radar-chart-d3
 */
 
+const d3 = require("../../node_modules/d3/dist/d3.min.js")
+
 class RadarChart {
 	constructor(element, data, options) {
 		this.config = {

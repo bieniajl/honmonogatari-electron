@@ -1,3 +1,5 @@
+const RadarChart = require("../../util/radarChart.js");
+
 class CharacterView {
 	constructor(current_character) {
 		this.current_character = current_character[0];
@@ -22,6 +24,8 @@ class CharacterView {
 			this.addItemElement(itemId, item.name, item.value);
 		}
 
+		// TODO read options for radar chart from prefferences
+		this.radarChart = new RadarChart('#graph', data);
 
 	}
 
@@ -128,6 +132,7 @@ module.exports = {
 <hr>
 <h4>${translate.get('character-abilities')}:</h4>
 <div id="abilities"></div>
+<div id="graph"></div>
 <hr>
 <h4>${translate.get('character-inventory')}:</h4>
 <div id="items"></div>
