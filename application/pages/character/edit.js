@@ -153,7 +153,7 @@ class CharacterEdit {
 	</div>
 		`);
 		$('#ability-input-' + count).val(value);
-		$('#ability-input-' + count).on('change', count, (event) => {
+		$('#ability-input-' + count).on('change', "", count, (event) => {
 			current_book.data.characters[this.current_character].abilities[event.data].value =
 					Number($('#ability-input-' + count).val());
 		});
@@ -190,7 +190,7 @@ class CharacterEdit {
 	</div>
 		`);
 		$('#item-input-' + count).val(value);
-		$('#item-input-' + count).on('change', count, (event) => {
+		$('#item-input-' + count).on('change', "", count, (event) => {
 			current_book.data.characters[this.current_character].items[event.data].value =
 					Number($('#item-input-' + count).val());
 		});
