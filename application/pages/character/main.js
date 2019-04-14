@@ -45,7 +45,7 @@ class CharacterMain {
 	</div>
 		`);
 		$('#character-show-' + count).click(count, (event) => {
-			router.navigate('character;show;' + count);
+			router.navigate('character;view;' + count);
 		});
 		$('#character-edit-' + count).click(count, (event) => {
 			router.navigate('character;edit;' + count);

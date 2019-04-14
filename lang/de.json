@@ -13,6 +13,8 @@
     "character-main-character": "Charaktere",
     "character-main-addBtn": "Charakter hinzufühgen",
 
+    "character-view-header": "Charakter Overview",
+
     "character-addAttribute": "Neues Attribut",
     "character-addDataString": "Textbasiert (Name)",
     "character-addDataNumber": "Nummer (Alter)",

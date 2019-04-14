@@ -28,7 +28,6 @@ class Library {
 		let data;
 		try {
 			data = JSON.parse(fs.readFileSync(file_path, { encoding: 'utf-8'}));
-			console.log("a");
 		} catch (e) {
 			if (e.code === "ENOENT" && autocreate) {
 				return this.addBook(name);

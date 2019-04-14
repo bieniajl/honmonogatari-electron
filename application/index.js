@@ -10,6 +10,10 @@ const character_routing = {
 		type: 'page',
 		page: require('./application/pages/character/main.js')
 	},
+	'view': {
+		type: 'page',
+		page: require('./application/pages/character/view.js')
+	},
 	'': {
 		type: 'page',
 		page: require('./application/pages/character/main.js')
