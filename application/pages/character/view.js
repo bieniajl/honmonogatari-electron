@@ -82,8 +82,8 @@ class CharacterView {
 			${name}
 		</label>
 		<div class="col-md-7">
-			<div class="progress" style="height: 38px">
-				<div class="progress-bar" role="progressbar" style="width: ${value}0%" aria-valuenow="${value}" aria-valuemin="0" aria-valuemax="10">
+			<div class="progress" style="margin: 9px 0;">
+				<div class="progress-bar" role="progressbar" style="width: ${value}%" aria-valuenow="${value}" aria-valuemin="0" aria-valuemax="100">
 			</div>
 		</div>
 	</div>

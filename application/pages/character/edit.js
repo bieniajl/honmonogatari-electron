@@ -139,7 +139,7 @@ class CharacterEdit {
 		</label>
 		<div class="col-md-7">
 			<div class="input-group">
-				<input id="ability-input-${count}" type="range" class="form-control custom-range px-2" min="0" max="10" style="height: 38px">
+				<input id="ability-input-${count}" type="range" class="form-control custom-range px-2" min="0" max="100" step="5" style="height: 38px">
 				<div class="input-group-append">
 					<button type="button" id="ability-edit-${count}" class="btn btn-outline-secondary">
 						<i class="fas fa-wrench"></i>
@@ -153,7 +153,7 @@ class CharacterEdit {
 	</div>
 		`);
 		$('#ability-input-' + count).val(value);
-		$('#ability-input-' + count).on('change', count, (event) => {
+		$('#ability-input-' + count).on('change', "", count, (event) => {
 			current_book.data.characters[this.current_character].abilities[event.data].value =
 					Number($('#ability-input-' + count).val());
 		});
@@ -190,7 +190,7 @@ class CharacterEdit {
 	</div>
 		`);
 		$('#item-input-' + count).val(value);
-		$('#item-input-' + count).on('change', count, (event) => {
+		$('#item-input-' + count).on('change', "", count, (event) => {
 			current_book.data.characters[this.current_character].items[event.data].value =
 					Number($('#item-input-' + count).val());
 		});
