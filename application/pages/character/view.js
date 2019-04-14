@@ -4,6 +4,8 @@ class CharacterView {
 	}
 
 	init() {
+		let radarChartData = [[]];
+
 		for (let dataId in current_book.data.characters[this.current_character].data) {
 			let data = current_book.data.characters[this.current_character].data[dataId];
 			this.addDataElement(data.type, dataId, data.name, data.value);
@@ -12,12 +14,15 @@ class CharacterView {
 		for (let abilityId in current_book.data.characters[this.current_character].abilities) {
 			let ability = current_book.data.characters[this.current_character].abilities[abilityId];
 			this.addAbilityElement(abilityId, ability.name, ability.value);
+			radarChartData[0].push({ axis: ability.name, value: ability.value});
 		}
 
 		for (let itemId in current_book.data.characters[this.current_character].items) {
 			let item = current_book.data.characters[this.current_character].items[itemId];
 			this.addItemElement(itemId, item.name, item.value);
 		}
+
+
 	}
 
 	addDataElement(type, count, name = 'Data_' + count, value = '') {
