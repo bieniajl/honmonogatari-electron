@@ -41,3 +41,27 @@ folder, for the user to use. This file is a json file. For the structure and con
 	"chapters": {}
 }
 ```
+## radarChart
+
+To draw a radar chart simply create a new object of the Radar chart class
+
+The data is an array of arrays, each sub array represents a new blob in the Chart
+
+### Example
+
+```js
+//data for the chart
+
+data = [
+	[
+		{axis: "Label1", value: 1}
+		{axis: "smithing", value: 2}
+	]
+]
+
+options = {
+	roundStrokes = true;
+}
+
+yourRadarChart = new RadarChart(<<DomLocation>>,data,options)
+```

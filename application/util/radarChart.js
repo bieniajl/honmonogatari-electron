@@ -12,7 +12,7 @@ class RadarChart {
 			width: 600,				//width of diagram
 			height: 600,			//heigth of diagram
 			levels: 5,				//Number of displayed inner circles
-			margin: {top:20, right:20, bottom:20, left:20},
+			margin: {top:100, right:100, bottom:100, left:100},
 			maxValue: 0,			//Value of the outermost point
 			wrapWidth: 60,			//Word wrap after x pixels
 			labelFactor: 1.2,		//Multiplier how far the out the labels should be placed in relation to radius
