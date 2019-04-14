@@ -4,7 +4,7 @@ const fs = require('fs');
 
 class Translate {
 	constructor(locale) {
-		this.path = path.join(electron.remote.app.getAppPath(), "lang" , locale + '.json');
+		this.path = path.join(electron.remote.app.getAppPath(), "languages" , locale + '.json');
 		this.data = ((filePath) => {
 			try {
 				return JSON.parse(fs.readFileSync(filePath));
