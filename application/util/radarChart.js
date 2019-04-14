@@ -19,7 +19,7 @@ class RadarChart {
 			opacityCircles: 0.075,	//opacity of the area in each circle
 			strokeWidth: 2,			//Width of the stroke around each datapoint
 			roundStrokes: false,	//If true there will be no hard corners
-			color: d3.scale.category10()
+			color: d3.scaleOrdinal(d3.schemeCategory10)
 		};
 
 		this.element = element;
@@ -45,7 +45,7 @@ class RadarChart {
 			Format = d3.format('d'),
 			angleSlice = Math.PI * 2 / total;
 
-		let rScale = d3.scale.linear()
+		let rScale = d3.scaleLinear()
 			.range([0, radius])
 			.domain([0, maxValue]);
 
@@ -140,13 +140,13 @@ class RadarChart {
 		/////////////////////////////////////////////////////////
 
 		//The radial line function
-		let radarLine = d3.svg.line.radial()
-			.interpolate("linear-closed")
+		let radarLine = d3.radialLine()
+			.curve(d3.curveLinearClosed)
 			.radius(function(d) { return rScale(d.value); })
 			.angle(function(d,i) {	return i*angleSlice; });
 
 		if(this.config.roundStrokes) {
-			radarLine.interpolate("cardinal-closed");
+			radarLine.curve(d3.curveCardinalClosed)
 		}
 
 		//Create a wrapper for the blobs
