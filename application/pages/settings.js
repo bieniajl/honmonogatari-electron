@@ -5,30 +5,18 @@ class Settings {
 	init() {
 		$('#language-DE').click(() => {
 			electron.ipcRenderer.send('jbcp-set', { key: 'locale', value: 'de'});
-			router.reload();
 		});
 		$('#language-EN').click(() => {
 			electron.ipcRenderer.send('jbcp-set', { key: 'locale', value: 'en'});
-			router.reload();
 		});
-		if (electron.ipcRenderer.sendSync('jbcp-get', 'renderRadarChart') == true) {
-			console.log(electron.ipcRenderer.sendSync('jbcp-get', 'renderRadarChart'));
-			$('#renderRadarChart').prop('checked', true);
-		} else {
-			console.log("bla");
-			$('#renderRadarChart').prop('checked', false);
-		}
-		$('#renderRadarChart').click(() => {
-			if ($('#renderRadarChart').is(":checked")) {
-				alert(electron.ipcRenderer.sendSync('jbcp-get', 'renderRadarChart'));
-				electron.ipcRenderer.send('jbcp-set', { key: 'renderRadarChart', value: 'true'});
-				alert(electron.ipcRenderer.sendSync('jbcp-get', 'renderRadarChart'));
-				router.reload();
-			} else {
-				electron.ipcRenderer.send('jbcp-set', { key: 'renderRadarChart', value: 'false'});
-				router.reload();
-			};
 
+		$('#renderRadarChart').prop('checked',
+				electron.ipcRenderer.sendSync('jbcp-get', 'renderRadarChart'));
+		$('#renderRadarChart').click(() => {
+			electron.ipcRenderer.send('jbcp-set', {
+				key: 'renderRadarChart',
+				value: $('#renderRadarChart').is(":checked")
+			});
 		});
 	}
 }
