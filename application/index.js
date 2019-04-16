@@ -15,8 +15,8 @@ const character_routing = {
 		page: require('./application/pages/character/view.js')
 	},
 	'': {
-		type: 'page',
-		page: require('./application/pages/character/main.js')
+		type: 'redirect',
+		redirect: 'character;main'
 	}
 };
 

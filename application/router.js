@@ -34,6 +34,10 @@ class Router {
 			case 'routing':
 				this.loadRoute(route.routing, route_data.slice(1));
 				break;
+			case 'redirect':
+				window.location.hash = "#" + route.redirect;
+				this.route();
+				break;
 		}
 	}
 
