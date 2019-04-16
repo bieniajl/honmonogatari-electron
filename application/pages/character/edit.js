@@ -265,17 +265,17 @@ module.exports = {
 </div>
 <h1>${translate.get('character-header')}</h1>
 <hr>
-<form>
+<form onsubmit="return false">
 	<h4>${translate.get('character-data')}:</h4>
 	<div id="data"></div>
 </form>
 <hr>
-<form>
+<form onsubmit="return false">
 	<h4>${translate.get('character-abilities')}:</h4>
 	<div id="abilities"></div>
 </form>
 <hr>
-<form>
+<form onsubmit="return false">
 	<h4>${translate.get('character-inventory')}:</h4>
 	<div id="items"></div>
 </form>

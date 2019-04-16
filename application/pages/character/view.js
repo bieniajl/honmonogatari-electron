@@ -17,7 +17,7 @@ class CharacterView {
 			let ability = current_book.data.characters[this.current_character].abilities[abilityId];
 			this.addAbilityElement(abilityId, ability.name, ability.value);
 
-			if (ability.value > 0) {
+			if (ability.value != -1) {
 				radarChartData[0].push({ axis: ability.name, value: ability.value});
 			}
 		}
