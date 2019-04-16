@@ -60,7 +60,7 @@ data = [
 ]
 
 options = {
-	roundStrokes = true;
+	roundStrokes = true;1
 }
 
 yourRadarChart = new RadarChart(<<DomLocation>>,data,options)

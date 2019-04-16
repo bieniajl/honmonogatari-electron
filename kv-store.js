@@ -36,6 +36,7 @@ class JBConfigProvider {
 			defaults: {
 				library: path.join(electron.app.getPath('userData'), 'library'),
 				locale: "en",
+				renderRadarChart: true,
 				window: {
 					width: 800,
 					height: 600,
