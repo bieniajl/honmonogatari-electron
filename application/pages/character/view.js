@@ -28,7 +28,9 @@ class CharacterView {
 		}
 
 		// TODO read options for radar chart from prefferences
-		this.radarChart = new RadarChart('#graph', radarChartData);
+		if(electron.ipcRenderer.sendSync('jbcp-get', 'renderRadarChart')) {
+			this.radarChart = new RadarChart('#graph', radarChartData);
+		}
 
 	}
 

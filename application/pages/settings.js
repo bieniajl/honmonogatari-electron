@@ -5,9 +5,11 @@ class Settings {
 	init() {
 		$('#language-DE').click(() => {
 			electron.ipcRenderer.send('jbcp-set', { key: 'locale', value: 'de'});
+			router.reload();
 		});
 		$('#language-EN').click(() => {
 			electron.ipcRenderer.send('jbcp-set', { key: 'locale', value: 'en'});
+			router.reload();
 		});
 
 		$('#renderRadarChart').prop('checked',
@@ -28,7 +30,7 @@ module.exports = {
 	<button type="button" class="btn btn-secondary" id="language-EN">EN</button>
 	<button type="button" class="btn btn-secondary" id="language-DE">DE</button>
 </div>
-<div class="form-check form-check-inline">
+<div class="form-check">
   <input class="form-check-input" type="checkbox" id="renderRadarChart" value="option1">
   <label class="form-check-label" for="renderRadarChart">Show Radar Chart</label>
 </div>
