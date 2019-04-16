@@ -1,5 +1,5 @@
 const { Library, Book } = require('./application/library.js');
-const Router = require('./application/router.js');
+const Router = require('./application/util/router.js');
 
 const character_routing = {
 	'edit': {
