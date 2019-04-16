@@ -50,7 +50,7 @@ const main_routing = {
 const library = new Library(electron.ipcRenderer.sendSync('jbcp-get', 'library'));
 var current_book = library.loadBook('test', true);
 
-const router = new Router(main_routing).setReloadCallback(() => {
+const router = new Router(main_routing).setRouteChangeCallback(() => {
 	current_book.save();
 }).route();
 

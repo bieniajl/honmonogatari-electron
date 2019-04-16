@@ -8,8 +8,12 @@ class Router {
 		this.outlet = document.getElementsByTagName('router')[0];
 	}
 
-	setReloadCallback(callback) {
-		this.reloadCallback = callback;
+	getCurrentRoute() {
+		return window.location.hash.substr(1).split(';');
+	}
+
+	setRouteChangeCallback(callback) {
+		this.routeChangeCallback = callback;
 		return this;
 	}
 
@@ -18,7 +22,7 @@ class Router {
 		return this;
 	}
 
-	loadRoute(routing, route_data) {
+	loadRoute(routing = this.routing, route_data = window.location.hash.substr(1).split(';')) {
 		let route = routing[route_data[0] === undefined ? '' : route_data[0]];
 
 		if (route === undefined) {
@@ -59,14 +63,18 @@ class Router {
 	}
 
 	navigate(route) {
+		if (typeof this.routeChangeCallback === 'function')
+			this.routeChangeCallback(route);
+
 		this.outlet.innerHTML = "";
 		window.location.hash = "#" + route;
-		this.loadRoute(this.routing, window.location.hash.substr(1).split(';'));
+		this.loadRoute();
 	}
 
 	reload() {
-		if (typeof this.reloadCallback === 'function')
-			this.reloadCallback();
+		if (typeof this.routeChangeCallback === 'function')
+			this.routeChangeCallback();
+
 		window.location.reload();
 	}
 }
