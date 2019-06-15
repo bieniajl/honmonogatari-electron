@@ -12,7 +12,7 @@ class FileTest {
 					readFile(fileNames[0]);
 				}
 			});
-		},false);
+		}, false);
 
 		document.getElementById('save-changes').addEventListener('click',function(){
 			var actualFilePath = document.getElementById("actual-file").value;
@@ -22,7 +22,7 @@ class FileTest {
 			}else{
 				alert("Please select a file first");
 			}
-		},false);
+		}, false);
 
 		document.getElementById('delete-file').addEventListener('click',function(){
 			var actualFilePath = document.getElementById("actual-file").value;
@@ -34,7 +34,7 @@ class FileTest {
 			}else{
 				alert("Please select a file first");
 			}
-		},false);
+		}, false);
 
 		document.getElementById('create-new-file').addEventListener('click',function(){
 			var content = document.getElementById("content-editor").value;
@@ -53,7 +53,7 @@ class FileTest {
 					alert("The file has been succesfully saved");
 				});
 			});
-		},false);
+		}, false);
 
 		function readFile(filepath) {
 			fs.readFile(filepath, 'utf-8', function (err, data) {
