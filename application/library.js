@@ -15,6 +15,7 @@ class Library {
 	addBook(name) {
 		let book = new Book(path.join(this.basepath, name), {
 			characters: [],
+			character_templates: [],
 			locations: [],
 			items: [],
 			chapters: {}
@@ -45,6 +46,14 @@ class Book {
 		this.data = data;
 	}
 
+	getCharacter(character) {
+		return this.data.characters[character];
+	}
+
+	getCharacterTemplate(template) {
+		return this.data.character_templates[template];
+	}
+
 	addCharacter() {
 		return this.data.characters.push({
 			data: [],
@@ -71,6 +80,42 @@ class Book {
 
 	addCharacterItem(character, name, count = 1) {
 		return this.data.characters[character].items.push({
+			name: name,
+			value: count
+		}) -1;
+	}
+
+	addCharacterTemplate() {
+		return this.data.character_templates.push({
+			name: "New Template",
+			data: [{
+				name: "Name",
+				type: "string",
+				value: ""
+			}],
+			abilities: [],
+			items: [],
+			relations: []
+		}) -1;
+	}
+
+	addCharacterTemplateData(template, name, type, value = '') {
+		return this.data.character_templates[template].data.push({
+			name: name,
+			type: type,
+			value: value
+		}) -1;
+	}
+
+	addCharacterTemplateAbility(template, name, strength = 0) {
+		return this.data.character_templates[template].abilities.push({
+			name: name,
+			value: strength
+		}) -1;
+	}
+
+	addCharacterTemplateItem(template, name, count = 1) {
+		return this.data.character_templates[template].items.push({
 			name: name,
 			value: count
 		}) -1;

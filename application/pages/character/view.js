@@ -2,19 +2,19 @@ const RadarChart = require("../../util/radarChart.js");
 
 class CharacterView {
 	constructor(current_character) {
-		this.current_character = current_character[0];
+		this.current_character = current_book.getCharacter(current_character[0]);
 	}
 
 	init() {
 		let radarChartData = [[]];
 
-		for (let dataId in current_book.data.characters[this.current_character].data) {
-			let data = current_book.data.characters[this.current_character].data[dataId];
+		for (let dataId in this.current_character.data) {
+			let data = this.current_character.data[dataId];
 			this.addDataElement(data.type, dataId, data.name, data.value);
 		}
 
-		for (let abilityId in current_book.data.characters[this.current_character].abilities) {
-			let ability = current_book.data.characters[this.current_character].abilities[abilityId];
+		for (let abilityId in this.current_character.abilities) {
+			let ability = this.current_character.abilities[abilityId];
 			this.addAbilityElement(abilityId, ability.name, ability.value);
 
 			if (ability.value != -1) {
@@ -22,8 +22,8 @@ class CharacterView {
 			}
 		}
 
-		for (let itemId in current_book.data.characters[this.current_character].items) {
-			let item = current_book.data.characters[this.current_character].items[itemId];
+		for (let itemId in this.current_character.items) {
+			let item = this.current_character.items[itemId];
 			this.addItemElement(itemId, item.name, item.value);
 		}
 
