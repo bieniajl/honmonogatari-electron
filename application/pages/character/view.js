@@ -6,6 +6,10 @@ class CharacterView {
 	}
 
 	init() {
+		$('#back').click(() => {
+			router.navigate('character');
+		});
+
 		let radarChartData = [[]];
 
 		for (let dataId in this.current_character.data) {
@@ -130,6 +134,10 @@ module.exports = {
 }
 </style>
 
+<button class="btn btn-secondary float-right mt-2" type="button" id="back">
+	<i class="fas fa-arrow-left"></i>
+	${translate.get('general-back')}
+</button>
 <h1>${translate.get('character-view-header')}</h1>
 <hr>
 <h4>${translate.get('character-data')}:</h4>

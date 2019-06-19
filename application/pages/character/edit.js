@@ -4,6 +4,9 @@ class CharacterEdit {
 	}
 
 	init() {
+		$('#back').click(() => {
+			router.navigate('character');
+		});
 		$('#addDataString').click(() => {
 			this.addDataElement('string', this.current_character.data.length);
 			this.current_character.addData('Data_' + this.current_character.data.length, 'string');
@@ -244,6 +247,10 @@ module.exports = {
 	page: CharacterEdit,
 	html: `
 <div class="dropdown float-right mt-2">
+	<button class="btn btn-secondary mr-1" type="button" id="back">
+		<i class="fas fa-arrow-left"></i>
+		${translate.get('general-back')}
+	</button>
 	<button class="btn btn-secondary dropdown-toggle" type="button" id="add" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		<i class="fas fa-plus"></i>
 		${translate.get('character-addAttribute')}
