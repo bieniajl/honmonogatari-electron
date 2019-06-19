@@ -2,7 +2,7 @@ const RadarChart = require("../../util/radarChart.js");
 
 class CharacterView {
 	constructor(current_character) {
-		this.current_character = current_book.getCharacter(current_character[0]);
+		this.current_character = library.getCurrentBook().getCharacter(current_character[0]);
 	}
 
 	init() {

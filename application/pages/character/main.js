@@ -4,8 +4,8 @@ class CharacterMain {
 
 	init() {
 		$('#add').click(() => {
-			current_book.addCharacter();
-			router.navigate('character;edit;' + (current_book.data.characters.length - 1));
+			library.getCurrentBook().addCharacter();
+			router.navigate('character;edit;' + (library.getCurrentBook().data.characters.length - 1));
 		});
 		this.loadBook();
 	}
@@ -13,8 +13,8 @@ class CharacterMain {
 	loadBook() {
 		$('#characters').empty();
 
-		for (let characterId in current_book.data.characters) {
-			let character = current_book.data.characters[characterId];
+		for (let characterId in library.getCurrentBook().data.characters) {
+			let character = library.getCurrentBook().data.characters[characterId];
 			if (isEmpty(character)) continue;
 			let name = 'Character_' + characterId;
 			if (!isEmpty(character.data[0]))
@@ -52,7 +52,7 @@ class CharacterMain {
 		});
 		$('#character-remove-' + count).click(count, (event) => {
 			$('#character-div-' + event.data).remove();
-			current_book.data.characters[event.data] = {};
+			library.getCurrentBook().data.characters[event.data] = {};
 		});
 	}
 }

@@ -1,6 +1,6 @@
 class CharacterEdit {
 	constructor(route) {
-		this.current_character = current_book.getCharacter(route[0]);
+		this.current_character = library.getCurrentBook().getCharacter(route[0]);
 	}
 
 	init() {
