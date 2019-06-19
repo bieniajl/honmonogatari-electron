@@ -47,7 +47,7 @@ class Book {
 	}
 
 	getCharacter(character) {
-		return this.data.characters[character];
+		return new Character(this.data.characters[character]);
 	}
 
 	getCharacterTemplate(template) {
@@ -131,4 +131,35 @@ class Book {
 	}
 }
 
-module.exports = { Library, Book };
+class Character {
+	constructor(data = { data: [], abilities: [], items: [], relations: [] }) {
+		this.data = data.data;
+		this.abilities = data.abilities;
+		this.items = data.items;
+		this.relations = data.relations;
+	}
+
+	addData(name, type, value = '') {
+		return this.data.push({
+			name: name,
+			type: type,
+			value: value
+		}) -1;
+	}
+
+	addAbility(name, strength = 0) {
+		return this.abilities.push({
+			name: name,
+			value: strength
+		}) -1;
+	}
+
+	addItem(name, count = 1) {
+		return this.items.push({
+			name: name,
+			value: count
+		}) -1;
+	}
+}
+
+module.exports = { Library, Book, Character };

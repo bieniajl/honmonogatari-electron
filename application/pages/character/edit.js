@@ -1,38 +1,32 @@
 class CharacterEdit {
-	constructor(current_character) {
-		this.current_character_id = current_character[0];
-		this.current_character = current_book.getCharacter(current_character[0]);
+	constructor(route) {
+		this.current_character = current_book.getCharacter(route[0]);
 	}
 
 	init() {
 		$('#addDataString').click(() => {
 			this.addDataElement('string', this.current_character.data.length);
-			current_book.addCharacterData(this.current_character_id,
-					'Data_' + this.current_character.data.length, 'string');
+			this.current_character.addData('Data_' + this.current_character.data.length, 'string');
 			this.run_name_edit_modal('data', this.current_character.data.length -1);
 		});
 		$('#addDataNumber').click(() => {
 			this.addDataElement('number', this.current_character.data.length);
-			current_book.addCharacterData(this.current_character_id,
-					'Data_' + this.current_character.data.length, 'number');
+			this.current_character.addData('Data_' + this.current_character.data.length, 'number');
 			this.run_name_edit_modal('data', this.current_character.data.length -1);
 		});
 		$('#addDataText').click(() => {
 			this.addDataElement('text', this.current_character.data.length);
-			current_book.addCharacterData(this.current_character_id,
-					'Data_' + this.current_character.data.length, 'text');
+			this.current_character.addData('Data_' + this.current_character.data.length, 'text');
 			this.run_name_edit_modal('data', this.current_character.data.length -1);
 		});
 		$('#addAbility').click(() => {
 			this.addAbilityElement(this.current_character.abilities.length);
-			current_book.addCharacterAbility(this.current_character_id, 'Ability_'
-					+ this.current_character.abilities.length);
+			this.current_character.addAbility('Ability_' + this.current_character.abilities.length);
 			this.run_name_edit_modal('ability', this.current_character.abilities.length -1);
 		});
 		$('#addItem').click(() => {
 			this.addItemElement(this.current_character.items.length);
-			current_book.addCharacterItem(this.current_character_id, 'Item_'
-					+ this.current_character.items.length);
+			this.current_character.addItem('Item_' + this.current_character.items.length);
 			this.run_name_edit_modal('item', this.current_character.items.length -1);
 		});
 
