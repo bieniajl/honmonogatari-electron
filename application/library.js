@@ -33,13 +33,7 @@ class Library {
 	}
 
 	addBook(name) {
-		let book = new Book(path.join(this.basepath, name), {
-			characters: [],
-			character_templates: [],
-			locations: [],
-			items: [],
-			chapters: {}
-		});
+		let book = new Book(path.join(this.basepath, name));
 		book.save();
 		return book;
 	}
@@ -50,7 +44,7 @@ class Library {
 }
 
 class Book {
-	constructor(path, data) {
+	constructor(path, data = Book.default) {
 		this.path = path;
 		this.data = data;
 	}
@@ -60,30 +54,15 @@ class Book {
 	}
 
 	getCharacterTemplate(template) {
-		return this.data.character_templates[template];
+		return new Character(this.data.character_templates[template]);
 	}
 
-	addCharacter() {
-		return this.data.characters.push({
-			data: [],
-			abilities: [],
-			items: [],
-			relations: []
-		}) -1;
+	addCharacter(data = Character.default) {
+		return this.data.characters.push(data) -1;
 	}
 
-	addCharacterTemplate() {
-		return this.data.character_templates.push({
-			name: "New Template",
-			data: [{
-				name: "Name",
-				type: "string",
-				value: ""
-			}],
-			abilities: [],
-			items: [],
-			relations: []
-		}) -1;
+	addCharacterTemplate(data = Character.default) {
+		return this.data.character_templates.push(data) -1;
 	}
 
 	save() {
@@ -95,6 +74,13 @@ class Book {
 		});
 	}
 }
+Book.default = {
+	characters: [],
+	character_templates: {},
+	locations: [],
+	items: [],
+	chapters: {}
+};
 
 class Character {
 	constructor(data = { data: [], abilities: [], items: [], relations: [] }) {
@@ -126,5 +112,15 @@ class Character {
 		}) -1;
 	}
 }
+Character.default = {
+	data: [{
+		name: "Name",
+		type: "string",
+		value: ""
+	}],
+	abilities: [],
+	items: [],
+	relations: []
+};
 
 module.exports = { Library, Book, Character };
