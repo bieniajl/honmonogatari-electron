@@ -14,12 +14,13 @@ class Library {
 	}
 
 	getBook(name, autocreate = false) {
-		let file_path = path.join(this.basepath, name);
+		let file_path = path.join(this.basepath, name + '.json');
 		let data;
 		try {
 			data = JSON.parse(fs.readFileSync(file_path, { encoding: 'utf-8'}));
 		} catch (e) {
 			if (e.code === "ENOENT" && autocreate) {
+				alert(data);
 				return this.addBook(name);
 			} else {
 				throw e;
@@ -33,7 +34,7 @@ class Library {
 	}
 
 	addBook(name) {
-		let book = new Book(path.join(this.basepath, name));
+		let book = new Book(path.join(this.basepath, name + '.json'));
 		book.save();
 		return book;
 	}
@@ -46,7 +47,7 @@ class Library {
 class Book {
 	constructor(path, data = Book.default) {
 		this.path = path;
-		this.data = data;
+		this.data = JSON.parse(JSON.stringify(data));
 	}
 
 	getCharacter(character) {
@@ -58,11 +59,11 @@ class Book {
 	}
 
 	addCharacter(data = Character.default) {
-		return this.data.characters.push(data) -1;
+		return this.data.characters.push(JSON.parse(JSON.stringify(data))) -1;
 	}
 
 	addCharacterTemplate(data = Character.default) {
-		return this.data.character_templates.push(data) -1;
+		return this.data.character_templates.push(JSON.parse(JSON.stringify(data))) -1;
 	}
 
 	save() {
@@ -114,8 +115,8 @@ class Character {
 }
 Character.default = {
 	data: [{
-		name: "Name",
-		type: "string",
+		name: 'Name',
+		type: 'string',
 		value: ""
 	}],
 	abilities: [],
