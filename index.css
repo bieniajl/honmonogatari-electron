@@ -44,3 +44,8 @@ main {
 .sidebar .nav-link.active .nav-icon {
 	color: inherit;
 }
+
+.scroll {
+	overflow-x: hidden;
+	overflow-y: auto;
+}
