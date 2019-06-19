@@ -35,6 +35,7 @@ class JBConfigProvider {
 			name: "preferences",
 			defaults: {
 				library: path.join(electron.app.getPath('userData'), 'library'),
+				currentBook: "default",
 				locale: "en",
 				renderRadarChart: true,
 				window: {

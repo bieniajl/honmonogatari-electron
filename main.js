@@ -8,7 +8,6 @@ let mainWindow;
 
 function createWindow () {
 	electron.Menu.setApplicationMenu(null);
-
 	/* https://electronjs.org/docs/api/menu-item
 	const mainMenu = Menu.buildFromTemplate(menuTemplate);
 	Menu.setApplicationMenu(mainMenu);

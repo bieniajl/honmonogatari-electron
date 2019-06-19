@@ -1,4 +1,4 @@
-const { Library, Book } = require('./application/library.js');
+const { Library, Book, Character } = require('./application/library.js');
 const Router = require('./application/util/router.js');
 
 const character_routing = {
@@ -48,7 +48,8 @@ const main_routing = {
 };
 
 const library = new Library(electron.ipcRenderer.sendSync('jbcp-get', 'library'));
-var current_book = library.loadBook('test', true);
+var current_book = library.loadBook(electron.ipcRenderer.sendSync('jbcp-get',
+		'currentBook'), true);
 
 const router = new Router(main_routing).setRouteChangeCallback(() => {
 	current_book.save();
