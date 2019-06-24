@@ -52,6 +52,17 @@ const library = new Library(
 	electron.ipcRenderer.sendSync('jbcp-get', 'currentBook')
 );
 
+library.getBooks().forEach(book => {
+	document.getElementById("book-select").innerHTML += "<option>" + book + "</option>";
+});
+document.getElementById("book-select").value = electron.ipcRenderer.sendSync('jbcp-get', 'currentBook');
+document.getElementById("book-select").onchange = () => {
+	let book = document.getElementById("book-select").value;
+	electron.ipcRenderer.send('jbcp-set', { key: 'currentBook', value: book});
+	library.loadBook(book);
+	router.reload();
+};
+
 const router = new Router(main_routing).setRouteChangeCallback(() => {
 	library.getCurrentBook().save();
 }).route();
