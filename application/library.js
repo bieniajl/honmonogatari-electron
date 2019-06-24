@@ -14,10 +14,10 @@ class Library {
 	}
 
 	getBook(name, autocreate = false) {
-		let file_path = path.join(this.basepath, name + '.json');
+		let file_path = path.join(this.basepath, name);
 		let data;
 		try {
-			data = JSON.parse(fs.readFileSync(file_path, { encoding: 'utf-8'}));
+			data = JSON.parse(fs.readFileSync(file_path + '.json', { encoding: 'utf-8'}));
 		} catch (e) {
 			if (e.code === "ENOENT" && autocreate) {
 				return this.addBook(name);
@@ -37,7 +37,7 @@ class Library {
 	}
 
 	addBook(name) {
-		let book = new Book(path.join(this.basepath, name + '.json'));
+		let book = new Book(path.join(this.basepath, name));
 		book.save();
 		return book;
 	}
@@ -70,7 +70,7 @@ class Book {
 	}
 
 	save() {
-		fs.writeFile(this.path, JSON.stringify(this.data), (error) => {
+		fs.writeFile(this.path + '.json', JSON.stringify(this.data), (error) => {
 			if (error) {
 				alert("Can't save file <" + this.path + ">\n" + error.message);
 				console.log(error);
