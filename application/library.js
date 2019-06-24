@@ -20,7 +20,6 @@ class Library {
 			data = JSON.parse(fs.readFileSync(file_path, { encoding: 'utf-8'}));
 		} catch (e) {
 			if (e.code === "ENOENT" && autocreate) {
-				alert(data);
 				return this.addBook(name);
 			} else {
 				throw e;
@@ -30,7 +29,11 @@ class Library {
 	}
 
 	getBooks() {
-		return []; //TODO return list from all books on disk
+		return fs.readdirSync(this.basepath).filter(file => {
+			return file.endsWith(".json");
+		}).map(file => {
+			return file.substr(0, file.length - 5);
+		});
 	}
 
 	addBook(name) {
