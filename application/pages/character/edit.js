@@ -251,35 +251,44 @@ module.exports = {
 		<i class="fas fa-arrow-left"></i>
 		${translate.get('general-back')}
 	</button>
-	<button class="btn btn-secondary dropdown-toggle" type="button" id="add" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-		<i class="fas fa-plus"></i>
-		${translate.get('character-addAttribute')}
-	</button>
-	<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-		<a class="dropdown-item" id="addDataString" href="#">${translate.get('character-addDataString')}</a>
-		<a class="dropdown-item" id="addDataNumber" href="#">${translate.get('character-addDataNumber')}</a>
-		<a class="dropdown-item" id="addDataText" href="#">${translate.get('character-addDataText')}</a>
-		<div class="dropdown-divider"></div>
-		<a class="dropdown-item" id="addAbility" href="#">${translate.get('character-addAbility')}</a>
-		<div class="dropdown-divider"></div>
-		<a class="dropdown-item" id="addItem" href="#">${translate.get('character-addItem')}</a>
-	</div>
 </div>
 <h1>${translate.get('character-header')}</h1>
 <hr>
 <form onsubmit="return false">
 	<h4>${translate.get('character-data')}:</h4>
 	<div id="data"></div>
+	<div class="btn-group btn-block" role="group">
+		<button type="button" id="addDataString" class="btn btn-outline-success">
+			<i class="fas fa-plus"></i>
+			${translate.get('character-addDataString')}
+		</button>
+		<button type="button" id="addDataNumber" class="btn btn-outline-success">
+			<i class="fas fa-plus"></i>
+			${translate.get('character-addDataNumber')}
+		</button>
+		<button type="button" id="addDataText" class="btn btn-outline-success">
+			<i class="fas fa-plus"></i>
+			${translate.get('character-addDataText')}
+		</button>
+	</div>
 </form>
 <hr>
 <form onsubmit="return false">
 	<h4>${translate.get('character-abilities')}:</h4>
 	<div id="abilities"></div>
+	<button type="button" id="addAbility" class="btn btn-block btn-outline-success">
+		<i class="fas fa-plus"></i>
+		${translate.get('character-addAbility')}
+	</button>
 </form>
 <hr>
 <form onsubmit="return false">
 	<h4>${translate.get('character-inventory')}:</h4>
 	<div id="items"></div>
+	<button type="button" id="addItem" class="btn btn-block btn-outline-success">
+		<i class="fas fa-plus"></i>
+		${translate.get('character-addItem')}
+	</button>
 </form>
 
 <div id="name-edit-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="name-edit-title" aria-hidden="true">
