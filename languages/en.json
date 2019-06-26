@@ -16,12 +16,11 @@
 
     "character-view-header": "Character Overview",
 
-    "character-addAttribute": "Add Attribute",
-    "character-addDataString": "Text-based (Name)",
-    "character-addDataNumber": "Number (Age)",
-    "character-addDataText": "Free Text (Name Ethymology)",
-    "character-addAbility": "Ability",
-    "character-addItem": "Item",
+    "character-addDataString": "Add Text (Name)",
+    "character-addDataNumber": "Add Number (Age)",
+    "character-addDataText": "Add Free Text (Name Ethymology)",
+    "character-addAbility": "Add Ability",
+    "character-addItem": "Add Item",
     "character-header": "Character Editor",
     "character-data": "Personal Data",
     "character-abilities": "Abilities",

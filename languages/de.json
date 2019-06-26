@@ -12,16 +12,15 @@
 
     "character-main-header": "Charakter Manager",
     "character-main-character": "Charaktere",
-    "character-main-addBtn": "Charakter hinzufühgen",
+    "character-main-addBtn": "Charakter hinzufügen",
 
     "character-view-header": "Charakter Overview",
 
-    "character-addAttribute": "Neues Attribut",
-    "character-addDataString": "Textbasiert (Name)",
-    "character-addDataNumber": "Nummer (Alter)",
-    "character-addDataText": "Freitext (Names Herkunft)",
-    "character-addAbility": "Fähigkeit",
-    "character-addItem": "Gegenstand",
+    "character-addDataString": "Textbasiert (Name) hinzufügen",
+    "character-addDataNumber": "Nummer (Alter) hinzufügen",
+    "character-addDataText": "Freitext (Names Herkunft) hinzufügen",
+    "character-addAbility": "Fähigkeit hinzufügen",
+    "character-addItem": "Gegenstand hinzufügen",
     "character-header": "Charakter Editor",
     "character-data": "Persönliche Daten",
     "character-abilities": "Fähigkeiten",
