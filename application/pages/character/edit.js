@@ -66,10 +66,10 @@ class CharacterEdit {
 	addDataElement(type, count, name = 'Data_' + count, value = '') {
 		let html = `
 	<div id="data-div-${count}" class="form-group row">
-		<label id="data-label-${count}" for="data-input-${count}" class="col-md-2 col-form-label">
+		<label id="data-label-${count}" for="data-input-${count}" class="col-md-3 col-form-label">
 			${name}:
 		</label>
-		<div class="col-md-10">
+		<div class="col-md-9">
 			<div class="input-group">
 		`;
 
@@ -132,10 +132,10 @@ class CharacterEdit {
 
 		$('#abilities').append(`
 	<div id="ability-div-${count}" class="form-group row">
-		<label id="ability-label-${count}" for="ability-input-${count}" class="col-md-5 col-form-label">
+		<label id="ability-label-${count}" for="ability-input-${count}" class="col-md-3 col-form-label">
 			${name}
 		</label>
-		<div class="col-md-7">
+		<div class="col-md-9">
 			<div class="input-group">
 				<input id="ability-input-${count}" type="range" class="form-control custom-range px-2" min="0" max="100" step="5" style="height: 38px">
 				<div class="input-group-append">
@@ -169,10 +169,10 @@ class CharacterEdit {
 
 		$('#items').append(`
 	<div id="item-div-${count}" class="form-group row">
-		<label id="item-label-${count}" for="item-input-${count}" class="col-md-5 col-form-label">
+		<label id="item-label-${count}" for="item-input-${count}" class="col-md-3 col-form-label">
 			${name}
 		</label>
-		<div class="col-md-7">
+		<div class="col-md-9">
 			<div class="input-group">
 				<input id="item-input-${count}" type="number" class="form-control" min="0">
 				<div class="input-group-append">

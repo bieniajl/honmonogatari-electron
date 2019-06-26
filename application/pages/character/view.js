@@ -41,10 +41,10 @@ class CharacterView {
 	addDataElement(type, count, name = 'Data_' + count, value = '') {
 		let html = `
 	<div id="data-div-${count}" class="form-group row">
-		<label id="data-label-${count}" for="data-input-${count}" class="col-md-2 col-form-label">
+		<label id="data-label-${count}" for="data-input-${count}" class="col-md-3 col-form-label">
 			${name}:
 		</label>
-		<div class="col-md-10">
+		<div class="col-md-9">
 			<div class="input-group">
 		`;
 
@@ -91,10 +91,10 @@ class CharacterView {
 
 		$('#abilities').append(`
 	<div id="ability-div-${count}" class="form-group row">
-		<label id="ability-label-${count}" for="ability-input-${count}" class="col-md-5 col-form-label">
+		<label id="ability-label-${count}" for="ability-input-${count}" class="col-md-3 col-form-label">
 			${name}
 		</label>
-		<div class="col-md-7">
+		<div class="col-md-9">
 			<div class="progress" style="margin: 9px 0;">
 				<div class="progress-bar" role="progressbar" style="width: ${value}%" aria-valuenow="${value}" aria-valuemin="0" aria-valuemax="100">
 			</div>
@@ -108,10 +108,10 @@ class CharacterView {
 
 		$('#items').append(`
 	<div id="item-div-${count}" class="form-group row">
-		<label id="item-label-${count}" for="item-input-${count}" class="col-md-5 col-form-label">
+		<label id="item-label-${count}" for="item-input-${count}" class="col-md-3 col-form-label">
 			${name}
 		</label>
-		<div class="col-md-7">
+		<div class="col-md-9">
 			<label id="item-input-${count}" class="form-control">
 				${value}
 			</label>
