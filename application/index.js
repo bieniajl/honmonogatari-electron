@@ -21,10 +21,6 @@ const character_routing = {
 };
 
 const main_routing = {
-	'pageA': {
-		type: 'page',
-		page: require('./application/pages/pageA.js')
-	},
 	'file-test': {
 		type: 'page',
 		page: require('./application/pages/file-test.js')

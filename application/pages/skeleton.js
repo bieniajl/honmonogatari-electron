@@ -1,4 +1,4 @@
-class Page {
+class SkeletonPage {
 	constructor() {
 	}
 
@@ -7,8 +7,8 @@ class Page {
 }
 
 module.exports = {
-	page: Page,
+	page: SkeletonPage,
 	html: `
-		<p>pageA</p>
+		<p>Example Page</p>
 	`
 };
