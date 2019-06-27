@@ -2,7 +2,6 @@
 
 ## router
 
-  - fix callback
   - add html-file attribute
   - add css attribute
   - add css-file attribute
@@ -12,7 +11,6 @@
 ## library
 
   - write file selector dialogs
-  - save last active file and load on startup
   - implement templates and template loading
 
 
