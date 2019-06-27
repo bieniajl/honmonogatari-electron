@@ -3,10 +3,12 @@ class CharacterMain {
 	}
 
 	init() {
-		$('#add').click(() => {
+		let addFunction = () => {
 			library.getCurrentBook().addCharacter();
 			router.navigate('character;edit;' + (library.getCurrentBook().data.characters.length - 1));
-		});
+		};
+		$('#add').click(addFunction);
+		$('#add2').click(addFunction);
 		this.loadBook();
 	}
 
@@ -77,6 +79,10 @@ module.exports = {
 <form>
 	<h4>${translate.get('character-main-character')}:</h4>
 	<div id="characters"></div>
+	<button type="button" id="add2" class="btn btn-block btn-outline-success">
+		<i class="fas fa-plus"></i>
+		${translate.get('character-main-addBtn')}
+	</button>
 </form>
 	`
 };
