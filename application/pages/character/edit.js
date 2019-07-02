@@ -258,18 +258,21 @@ module.exports = {
 	<h4>${translate.get('character-data')}:</h4>
 	<div id="data"></div>
 	<div class="btn-group btn-block" role="group">
-		<button type="button" id="addDataString" class="btn btn-outline-success">
+		<button type="button" id="addDataString" class="btn btn-outline-success btn-block">
 			<i class="fas fa-plus"></i>
 			${translate.get('character-addDataString')}
 		</button>
-		<button type="button" id="addDataNumber" class="btn btn-outline-success">
-			<i class="fas fa-plus"></i>
-			${translate.get('character-addDataNumber')}
-		</button>
-		<button type="button" id="addDataText" class="btn btn-outline-success">
-			<i class="fas fa-plus"></i>
-			${translate.get('character-addDataText')}
-		</button>
+		<button type="button" class="btn btn-outline-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+		<div class="dropdown-menu dropdown-menu-right">
+			<a id="addDataNumber" class="dropdown-item" href="#">
+				<i class="fas fa-plus"></i>
+				${translate.get('character-addDataNumber')}
+			</a>
+			<a id="addDataText" class="dropdown-item" href="#">
+				<i class="fas fa-plus"></i>
+				${translate.get('character-addDataText')}
+			</a>
+		</div>
 	</div>
 </form>
 <hr>
