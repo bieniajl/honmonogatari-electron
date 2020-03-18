@@ -84,5 +84,33 @@ module.exports = {
 		${translate.get('character-main-addBtn')}
 	</button>
 </form>
+
+<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="deleteModalHeader" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="deleteModalHeader">
+					${translate.get('character-main-delete-header')}
+				</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<i class="fas fa-times"></i>
+				</button>
+			</div>
+			<div class="modal-body">
+				${translate.get('character-main-delete-body')}
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">
+					<i class="fas fa-arrow-left"></i>
+					${translate.get('general-back')}
+				</button>
+				<button type="button" id="delete-" class="btn btn-danger">
+					<i class="fas fa-trash-alt"></i>
+					${translate.get('character-main-delete-button')}
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
 	`
 };

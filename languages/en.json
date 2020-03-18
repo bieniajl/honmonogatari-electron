@@ -13,6 +13,9 @@
     "character-main-header": "Character Manager",
     "character-main-character": "Characters",
     "character-main-addBtn": "Add Character",
+    "character-main-delete-header": "Delete?",
+    "character-main-delete-body": "Do you really want to delete the character?",
+    "character-main-delete-button": "Delete Character",
 
     "character-view-header": "Character Overview",
 
